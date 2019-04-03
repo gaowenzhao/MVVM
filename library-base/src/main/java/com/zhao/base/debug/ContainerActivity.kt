@@ -2,12 +2,11 @@ package com.zhao.base.debug
 
 import android.content.Intent
 import android.support.v4.app.Fragment
-import com.zhao.base.inf.BaseActivity
-import com.zhao.base.presenter.BasePresenter
 import com.zhao.base.R
 import com.zhao.base.databinding.ActivityContainerBinding
+import com.zhao.base.inf.BaseSimpleActivity
 
-class ContainerActivity: BaseActivity<ActivityContainerBinding, BasePresenter<*>>(){
+class ContainerActivity: BaseSimpleActivity<ActivityContainerBinding>(){
     override var layoutId: Int = R.layout.activity_container
     val FRAGMENT = "fragment"
     val BUNDLE = "bundle"

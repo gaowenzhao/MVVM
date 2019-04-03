@@ -5,12 +5,10 @@ import android.util.Log
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.zhao.base.inf.BaseFragment
-import com.zhao.base.inf.BaseVMFragment
-import com.zhao.base.presenter.BasePresenter
 import com.zhao.base.utils.router.RouterUrl
 import com.zhao.msg.databinding.FragmentMsgBinding
 @Route(path = RouterUrl.Msg.TabMsg)
-class MsgFragment : BaseVMFragment<FragmentMsgBinding, ViewModel>(){
+class MsgFragment : BaseFragment<FragmentMsgBinding, ViewModel>(){
     override var darkMode: Boolean = true
     override var fitsSystemWindows: Boolean = true
     override var layoutId: Int = R.layout.fragment_msg

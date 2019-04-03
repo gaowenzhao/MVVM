@@ -2,9 +2,7 @@ package com.zhao.main
 
 import android.content.Intent
 import android.os.Handler
-import com.zhao.base.inf.BaseActivity
 import com.zhao.base.inf.BaseSimpleActivity
-import com.zhao.base.presenter.BasePresenter
 import com.zhao.main.databinding.SplashActivityBinding
 
 class SplashActivity: BaseSimpleActivity<SplashActivityBinding>() {

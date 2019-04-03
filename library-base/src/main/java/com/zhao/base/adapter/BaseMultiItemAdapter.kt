@@ -12,7 +12,6 @@ abstract class BaseMultiItemAdapter<VH:RecyclerView.ViewHolder>(private var data
      override fun getItemCount(): Int {
         return  datas.size
     }
-
     override fun getItemViewType(position: Int): Int {
         return datas[position].getItemType()
     }

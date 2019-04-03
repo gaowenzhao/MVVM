@@ -8,7 +8,6 @@ import com.zhao.home.vm.rv.AdverVM
 
 class AdverVH(vg: ViewGroup) :BaseViewHolder<HomeItemAdverBinding>(R.layout.home_item_adver,vg){
     override fun bindData(vm: BaseVM) {
-        val myVm = vm as AdverVM
-        ui.vm = myVm
+        ui.vm = vm as AdverVM
     }
 }
