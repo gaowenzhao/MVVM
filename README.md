@@ -1,5 +1,3 @@
 # MVVMDemo
-使用MVVM框架做的demo
-使用网络主流框架okhttp+retrofit+Rxjava
-使用最近火热的kotlin语言编写
-使用了组件化框架
+本工程搭建一个当前流行的架构，有利于后期的快速开发。
+当前的架构为MVVM+组件化+kotlin，使用的网络框架为Retrofit+okhttp+Rxjava。
