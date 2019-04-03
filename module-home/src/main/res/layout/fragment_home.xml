@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
 >
     <data>
-       <variable name="vm" type="com.zhao.home.vm.HomeVM"/>
+        <variable name="vm" type="com.zhao.home.vm.HomeVM"/>
     </data>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"
+            android:background="@color/design_default_color_primary"
             android:orientation="vertical">
         <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -15,23 +15,14 @@
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimary">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@{vm.title}"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@{vm.title}"/>
         </android.support.v7.widget.Toolbar>
-        <TextView
-                android:id="@+id/tv_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="首页界面"
-                android:textSize="50px"
-        />
-        <ImageView
-                android:id="@+id/iv_banner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-        />
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
     </LinearLayout>
 </layout>

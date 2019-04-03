@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="vm" type="com.zhao.home.vm.rv.BannerVM"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                tools:ignore="MissingConstraints"
+                android:text="@{vm.banner}"
+                android:background="#000000"
+                android:textColor="@color/white"
+                android:gravity="center"
+        />
+    </android.support.constraint.ConstraintLayout>
+</layout>
