@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BaseLib</string>
+    <string name="permission_desc">请前往权限管理，允许MVVM访问您的%1$s</string>
+    <string name="permission_camera">摄像头权限</string>
+    <string name="permission_contacts">通讯录权限</string>
+    <string name="permission_phone">电话权限</string>
+    <string name="permission_sms">短信权限</string>
+    <string name="permission_storage">存储空间权限</string>
 </resources>

@@ -46,6 +46,8 @@ dependencies {
     //图片
     api 'com.github.bumptech.glide:glide:4.9.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    //权限设置
+    api 'com.yanzhenjie:permission:2.0.0-rc11'
 
     //livedata
 //    api 'android.arch.lifecycle:runtime:1.1.1'

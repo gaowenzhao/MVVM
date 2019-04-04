@@ -45,4 +45,11 @@ class HomeVM :BaseVM(){
         datas.add(adverEntity1)
         return datas
     }
+    fun initSimple():ArrayList<BannerVM>{
+        var datas = ArrayList<BannerVM>()
+        for (i in 1..10){
+            datas.add(VMUtil.createVM(BannerVM::class.java))
+        }
+        return datas
+    }
 }

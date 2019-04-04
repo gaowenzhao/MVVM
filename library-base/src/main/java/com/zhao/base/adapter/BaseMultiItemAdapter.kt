@@ -5,8 +5,8 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 
-abstract class BaseMultiItemAdapter<VH:RecyclerView.ViewHolder>(private var datas:List<MultiItemEntity>) : RecyclerView.Adapter<VH>(){
-     override fun onBindViewHolder(vh: VH, position: Int) {
+abstract class BaseMultiItemAdapter(private var datas:List<MultiItemEntity>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+     override fun onBindViewHolder(vh: RecyclerView.ViewHolder, position: Int) {
          (vh as BaseViewHolder<ViewDataBinding>).bindData(datas[position].getData())
      }
      override fun getItemCount(): Int {

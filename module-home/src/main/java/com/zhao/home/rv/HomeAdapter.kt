@@ -8,7 +8,7 @@ import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.home.rv.vh.AdverVH
 import com.zhao.home.rv.vh.BannerVH
 
-class HomeAdapter(datas: List<MultiItemEntity>) : BaseMultiItemAdapter<RecyclerView.ViewHolder>(datas) {
+class HomeAdapter(datas: List<MultiItemEntity>) : BaseMultiItemAdapter(datas) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             VHType.BANNER.code -> {
