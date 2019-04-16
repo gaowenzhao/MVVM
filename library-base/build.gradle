@@ -2,15 +2,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-def config = rootProject.ext.configs
 
 android {
-    compileSdkVersion config.compileSdkVersion
+    compileSdkVersion compileSdk
     defaultConfig {
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode verCode
+        versionName verName
     }
 
     buildTypes {

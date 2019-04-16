@@ -1,18 +1,5 @@
 package com.zhao.base.utils.permission
 
-import android.app.Activity
-import android.content.Context
-import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
-import android.text.TextUtils
-import com.yanzhenjie.permission.Action
-import com.yanzhenjie.permission.AndPermission
-import com.yanzhenjie.permission.Setting
-import com.zhao.base.R
-import com.zhao.base.app.BaseApplication
-
-import java.util.ArrayList
-
 import android.Manifest.permission.CALL_PHONE
 import android.Manifest.permission.CAMERA
 import android.Manifest.permission.GET_ACCOUNTS
@@ -30,37 +17,53 @@ import android.Manifest.permission.USE_SIP
 import android.Manifest.permission.WRITE_CALL_LOG
 import android.Manifest.permission.WRITE_CONTACTS
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+import android.app.Activity
+import android.content.Context
+import android.support.v7.app.AlertDialog
+import android.text.TextUtils
+import android.widget.Toast
+import com.yanzhenjie.permission.AndPermission
 import com.yanzhenjie.permission.Permission.ACCESS_COARSE_LOCATION
 import com.yanzhenjie.permission.Permission.ACCESS_FINE_LOCATION
 import com.yanzhenjie.permission.Permission.RECORD_AUDIO
+import com.zhao.base.R
+import com.zhao.base.app.BaseApplication
+import java.util.*
 
 /**
  * Created by RGghjhgj on 2018/7/3.
  */
 
 object PermissionUtils {
-    const val PERMISSION_REQUESTCODE = 1111
-    fun requestPermission(activity: Activity, permissionI: BasePermissionI?, vararg permissions: String) {
+    fun requestPermission(activity: Activity,permissionI: BasePermissionI,vararg permissions: String) {
         AndPermission.with(BaseApplication.appContext)
             .runtime()
             .permission(*permissions)
             .onGranted {
-                permissionI?.permissionYes()
+                permissionI.onGranted()
             }
-            .onDenied { data -> showPermissionWindow(activity, data) }.start()
+            .onDenied { data ->
+                if (AndPermission.hasAlwaysDeniedPermission(activity)) {
+                    showPermissionWindow(activity, data)
+                }
+            }.start()
     }
 
     fun showPermissionWindow(context: Context, permissions: List<String>, cancelable: Boolean = false) {
         if (cancelable) {
             val permissionNames = transformText(permissions)
             val content = context.getString(R.string.permission_desc, TextUtils.join(" ", permissionNames))
-            val settingService = AndPermission.permissionSetting(context)
+            val settingService = AndPermission.with(context).runtime().setting()
             AlertDialog.Builder(context)
                 .setTitle("权限提示")
                 .setCancelable(false)
                 .setMessage(content)
-                .setPositiveButton("同意") { _, _ -> settingService.execute(PERMISSION_REQUESTCODE) }
-                .setNegativeButton("拒绝") { _, _ -> settingService.cancel() }.show()
+                .setPositiveButton("同意") { _, _ ->
+                    settingService.onComeback {
+                        Toast.makeText(context, "同意", Toast.LENGTH_LONG).show()
+                    }
+                }
+                .show()
         } else {
             showPermissionWindow(context, permissions)
         }

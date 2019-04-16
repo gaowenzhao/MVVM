@@ -1,9 +1,10 @@
 package com.zhao.home.vm.rv
 
-import android.arch.lifecycle.MutableLiveData
 import com.zhao.base.inf.BaseVM
+import com.zhao.home.R
 
 class BannerVM :BaseVM(){
-    var banner = MutableLiveData<String>().also { it.value="banner" }
-
+    var banner = "banner"
+    var white = false
+    val img by lazy { if(white) R.mipmap.ic_launcher else R.mipmap.ic_back}
 }

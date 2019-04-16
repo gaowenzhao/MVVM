@@ -5,5 +5,5 @@ package com.zhao.base.utils.permission;
  */
 
 public interface BasePermissionI {
-    void permissionYes();
+    void onGranted();
 }
