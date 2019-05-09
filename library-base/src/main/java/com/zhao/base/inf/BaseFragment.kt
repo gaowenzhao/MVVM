@@ -2,10 +2,10 @@ package com.zhao.base.inf
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
-import android.os.Build
 import android.os.Bundle
 import android.support.v4.view.ViewCompat
 import android.view.LayoutInflater
@@ -31,7 +31,7 @@ abstract class BaseFragment<V : ViewDataBinding, VM : ViewModel> : SimpleImmersi
     open var statusBarColor = R.color.white
     lateinit var ui: V
     val vm by lazy {
-        ViewModelProvider.AndroidViewModelFactory.getInstance(activity?.application!!).create(getClassType())
+        ViewModelProviders.of(this).get(getClassType())
     }
     /**
      * 绑定activity
@@ -66,7 +66,7 @@ abstract class BaseFragment<V : ViewDataBinding, VM : ViewModel> : SimpleImmersi
         if (isEventbus) {
             EventBusUtil.register(this)
         }
-        initUIVM()
+        initVM()
         initView(mRootView!!)
         initData()
     }
@@ -118,5 +118,5 @@ abstract class BaseFragment<V : ViewDataBinding, VM : ViewModel> : SimpleImmersi
      */
     protected open fun onUserVisible() {}
     protected open fun onUserInvisible() {}
-    protected open fun initUIVM(){}
+    protected open fun initVM(){}
 }

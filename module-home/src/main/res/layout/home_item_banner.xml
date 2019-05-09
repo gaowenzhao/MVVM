@@ -15,7 +15,7 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 tools:ignore="MissingConstraints"
-                android:text='@{vm.white? @string/home_name: "banner"}'
+                android:text='@{vm.white? @string/home_name: vm.banner}'
                 android:textColor="@{vm.white? @color/white : @color/colorAccent }"
                 android:gravity="center"
         />

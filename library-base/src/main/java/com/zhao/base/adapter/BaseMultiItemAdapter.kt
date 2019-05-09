@@ -1,11 +1,12 @@
 package com.zhao.base.adapter
 
+import android.databinding.ObservableArrayList
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 
-abstract class BaseMultiItemAdapter(private var datas:List<MultiItemEntity>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+abstract class BaseMultiItemAdapter(val datas:ObservableArrayList<MultiItemEntity> = ObservableArrayList()) : ObservableAdapter<MultiItemEntity>(datas),MutableList<MultiItemEntity> by datas{
      override fun onBindViewHolder(vh: RecyclerView.ViewHolder, position: Int) {
          (vh as BaseViewHolder<ViewDataBinding>).bindData(datas[position].getData())
      }
@@ -27,5 +28,8 @@ abstract class BaseMultiItemAdapter(private var datas:List<MultiItemEntity>) : R
             }
         }
     }
-
+   open fun update(list:ObservableArrayList<MultiItemEntity>){
+       datas.clear()
+       datas.addAll(list)
+    }
 }

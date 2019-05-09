@@ -47,12 +47,14 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
     //权限设置
     api 'com.yanzhenjie:permission:2.0.0-rc11'
-
     //livedata
-//    api 'android.arch.lifecycle:runtime:1.1.1'
-//    api 'android.arch.lifecycle:extensions:1.1.1'
-//    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
-
+    api 'android.arch.lifecycle:runtime:1.1.1'
+    api 'android.arch.lifecycle:extensions:1.1.1'
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
     //公用资源在base中依赖
     api project(':library-res')
+
+//    api 'com.github.gaowenzhao:FingerRecoDemo:1.0.3'
+//    api 'com.google.android.exoplayer:exoplayer:2.7.2'
+
 }

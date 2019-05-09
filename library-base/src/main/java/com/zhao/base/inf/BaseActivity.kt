@@ -2,6 +2,7 @@ package com.zhao.base.inf
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
@@ -21,7 +22,7 @@ abstract class BaseActivity<V : ViewDataBinding,VM:ViewModel> : AppCompatActivit
     abstract var layoutId: Int
     lateinit var ui: V
     val vm by lazy {
-        ViewModelProvider.AndroidViewModelFactory.getInstance(application).create(getClassType())
+        ViewModelProviders.of(this).get(getClassType())
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

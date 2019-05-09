@@ -1,12 +1,12 @@
 package com.zhao.home.vm
 
 import android.arch.lifecycle.MutableLiveData
+import android.databinding.ObservableArrayList
 import com.hzcfapp.qmwallet.widget.recycler.VHType
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
 import com.zhao.base.http.bean.BaseBean
 import com.zhao.base.inf.BaseVM
-import com.zhao.base.utils.VMUtil
 import com.zhao.home.model.HomeModel
 import com.zhao.home.vm.rv.AdverVM
 import com.zhao.home.vm.rv.BannerVM
@@ -21,34 +21,37 @@ class HomeVM :BaseVM(){
             }
         }))
     }
-    fun initData():ArrayList<MultiItemEntity>{
-       var datas = ArrayList<MultiItemEntity>()
+    fun initData():ObservableArrayList<MultiItemEntity>{
+       var datas = ObservableArrayList<MultiItemEntity>()
        val bannerEntity =  MultiItemEntity.builder()
             .setSpanSize(2)
             .setVhType(VHType.BANNER.code)
-            .setContent(VMUtil.createVM(BannerVM::class.java))
+            .setContent(BannerVM())
             .build()
         datas.add(bannerEntity)
 
         val adverEntity =  MultiItemEntity.builder()
             .setSpanSize(1)
             .setVhType(VHType.ADVER.code)
-            .setContent(VMUtil.createVM(AdverVM::class.java))
+            .setContent(AdverVM())
             .build()
         datas.add(adverEntity)
 
         val adverEntity1 =  MultiItemEntity.builder()
             .setSpanSize(1)
             .setVhType(VHType.ADVER.code)
-            .setContent(VMUtil.createVM(AdverVM::class.java))
+            .setContent(AdverVM())
             .build()
         datas.add(adverEntity1)
         return datas
     }
-    fun initSimple():ArrayList<BannerVM>{
-        var datas = ArrayList<BannerVM>()
+    fun initSimple():ObservableArrayList<BannerVM>{
+        var datas = ObservableArrayList<BannerVM>()
         for (i in 1..10){
-            datas.add(VMUtil.createVM(BannerVM::class.java))
+//            val bannerVM = VMUtils.createVM(BannerVM::class.java)
+            val bannerVM = BannerVM()
+            bannerVM.banner = "banner$i"
+            datas.add(bannerVM)
         }
         return datas
     }

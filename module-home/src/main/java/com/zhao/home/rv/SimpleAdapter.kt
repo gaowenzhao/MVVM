@@ -7,7 +7,7 @@ import com.zhao.home.rv.vh.BannerVH
 import com.zhao.home.vm.rv.BannerVM
 
 
-class SimpleAdapter(var datas:ArrayList<BannerVM>) :BaseAdapter(datas){
+class SimpleAdapter:BaseAdapter<BannerVM>(){
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
         return BannerVH(p0)
     }
