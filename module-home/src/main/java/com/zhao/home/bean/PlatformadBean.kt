@@ -1,12 +1,12 @@
-package com.hzcf.model.home.bean
+package com.zhao.home.bean
 
-import com.zhao.home.bean.BannerBean
+import android.databinding.BaseObservable
 
 
 /**
  * gaowenzhao
  */
-class PlatformadBean {
+class PlatformadBean :BaseObservable(){
     lateinit var firstTitle:String
     lateinit var secondTitle:String
     lateinit var image:String

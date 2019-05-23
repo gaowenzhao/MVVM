@@ -1,6 +1,8 @@
-package com.hzcf.model.home.bean
+package com.zhao.home.bean
 
-class InvestFlowBean {
+import android.databinding.BaseObservable
+
+class InvestFlowBean :BaseObservable(){
     lateinit var firstTitle:String
     lateinit var secondTitle:String
     lateinit var image:String

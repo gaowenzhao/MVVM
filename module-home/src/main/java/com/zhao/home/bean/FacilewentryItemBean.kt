@@ -1,6 +1,8 @@
-package com.hzcf.model.home.bean
+package com.zhao.home.bean
 
-class FacilewentryItemBean {
+import android.databinding.BaseObservable
+
+class FacilewentryItemBean:BaseObservable() {
     var activeColor:String? = null
     var activeImage:String? = null
     var defaultColor:String? = null

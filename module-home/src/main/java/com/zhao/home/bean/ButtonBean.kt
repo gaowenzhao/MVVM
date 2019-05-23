@@ -1,7 +1,9 @@
-package com.hzcf.model.home.bean
+package com.zhao.home.bean
+
+import android.databinding.BaseObservable
 
 
-class ButtonBean {
+class ButtonBean:BaseObservable() {
     var isDone:Boolean = false
     var no:Int = 1
     var description:String?=null

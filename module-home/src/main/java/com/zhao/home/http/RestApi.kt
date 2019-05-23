@@ -1,10 +1,10 @@
-package com.zhao.base.http
+package com.zhao.home.http
 
-import com.hzcf.model.home.bean.AfficheBean
-import com.hzcf.model.home.bean.BeanGetHomePopupInformation
-import com.hzcf.model.home.bean.BidBean
-import com.hzcf.model.home.bean.HomeDataBean
 import com.zhao.base.http.bean.BaseBean
+import com.zhao.home.bean.AfficheBean
+import com.zhao.home.bean.BeanGetHomePopupInformation
+import com.zhao.home.bean.BidBean
+import com.zhao.home.bean.HomeDataBean
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

@@ -1,6 +1,8 @@
-package com.hzcf.model.home.bean
+package com.zhao.home.bean
 
-class EntranceBean {
+import android.databinding.BaseObservable
+
+class EntranceBean :BaseObservable(){
     var isDone:Boolean = false
     var no:Int = 0
     var description:String?=null

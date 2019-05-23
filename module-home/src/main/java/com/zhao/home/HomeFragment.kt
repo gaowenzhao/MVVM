@@ -21,7 +21,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(){
      }
      override fun initView(RootView: View) {
          ui.rvData.layoutManager = GridLayoutManager(activity,2)
-//         ui.rvData.adapter = homeAdapter
+         ui.rvData.adapter = homeAdapter
      }
      override fun initData(){
 //         homeAdapter.update()

@@ -1,4 +1,4 @@
-package com.hzcf.model.home.bean
+package com.zhao.home.bean
 
 class BeanGetHomePopupInformation {
 

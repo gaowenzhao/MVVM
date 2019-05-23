@@ -3,14 +3,14 @@ import android.databinding.ObservableArrayList
 import android.text.TextUtils
 import android.util.SparseArray
 import com.hzcf.model.base.error.BeanError
-import com.hzcf.model.home.bean.AfficheBean
-import com.hzcf.model.home.bean.BidBean
-import com.hzcf.model.home.bean.HeaderSectionBean
-import com.hzcf.model.home.bean.HomeDataBean
 import com.hzcfapp.qmwallet.widget.recycler.MultipleFields
 import com.hzcfapp.qmwallet.widget.recycler.VHType
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.home.R
+import com.zhao.home.bean.AfficheBean
+import com.zhao.home.bean.BidBean
+import com.zhao.home.bean.HeaderSectionBean
+import com.zhao.home.bean.HomeDataBean
 
 /**
  * gaowenzhao

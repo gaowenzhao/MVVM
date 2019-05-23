@@ -15,6 +15,6 @@ class BaseBean<T : Any> {
 
     object Code {
         const val unknown = -1
-        const val success = 0
+        const val success = 200
     }
 }

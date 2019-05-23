@@ -1,9 +1,9 @@
-package com.hzcf.model.home.bean
+package com.zhao.home.bean
 
-import com.zhao.home.bean.BannerBean
+import android.databinding.BaseObservable
 
 
-class HomeDataBean {
+class HomeDataBean :BaseObservable(){
     var isLogin: Boolean = false
     var isFirstInvestment: Boolean = false
     var zongcoinmarket: MarketBean? = null //粽币商城

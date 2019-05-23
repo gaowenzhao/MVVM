@@ -3,14 +3,13 @@ package com.zhao.home.vm
 import android.arch.lifecycle.MutableLiveData
 import android.databinding.ObservableArrayList
 import android.util.SparseArray
-import com.hzcf.model.home.bean.AfficheBean
-import com.hzcf.model.home.bean.BidBean
-import com.hzcf.model.home.bean.HomeDataBean
 import com.hzcfapp.qmwallet.widget.recycler.VHType
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
-import com.zhao.base.http.bean.BaseBean
 import com.zhao.base.inf.BaseVM
+import com.zhao.home.bean.AfficheBean
+import com.zhao.home.bean.BidBean
+import com.zhao.home.bean.HomeDataBean
 import com.zhao.home.model.HomeModel
 import com.zhao.home.vm.rv.AdverBean
 import com.zhao.home.vm.rv.BannerBean
@@ -58,11 +57,11 @@ class HomeVM : BaseVM() {
     fun getAllData() {
         getHomeInfo()
     }
-    private fun getHomeInfo() {
+   private fun getHomeInfo() {
         mod.getHomeInfo(object : BaseObs<HomeDataBean>() {
             override fun onSuccess(data: HomeDataBean?) {
                 multiData.put(0,data)
-//                getAffiche()
+                getAffiche()
             }
          }
         )
