@@ -1,10 +1,9 @@
 package com.zhao.base.adapter
 
+import android.databinding.BaseObservable
 import android.databinding.ObservableArrayList
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
-import com.zhao.base.adapter.multityppe.MultiItemEntity
-import com.zhao.base.inf.BaseVM
 
 abstract class BaseAdapter<E>(var datas: ObservableArrayList<E> = ObservableArrayList()):ObservableAdapter<E>(datas),MutableList<E> by datas{
     override fun getItemCount(): Int {
@@ -12,7 +11,9 @@ abstract class BaseAdapter<E>(var datas: ObservableArrayList<E> = ObservableArra
     }
 
     override fun onBindViewHolder(vh: RecyclerView.ViewHolder, position: Int) {
-        (vh as BaseViewHolder<ViewDataBinding>).bindData(datas[position] as BaseVM)
+        datas[position]?.let {
+            (vh as BaseViewHolder<ViewDataBinding,BaseObservable>).initData(it as Any)
+        }
     }
     open fun update(list:ObservableArrayList<E>){
         datas.clear()

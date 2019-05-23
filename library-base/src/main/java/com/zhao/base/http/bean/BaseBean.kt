@@ -3,7 +3,8 @@ package com.zhao.base.http.bean
 import com.zhao.base.http.bean.BaseBean.Code.success
 import com.zhao.base.http.bean.BaseBean.Code.unknown
 
- class BaseBean<T : Any> {
+
+class BaseBean<T : Any> {
 
     var code: Int = unknown
     var message: String = ""

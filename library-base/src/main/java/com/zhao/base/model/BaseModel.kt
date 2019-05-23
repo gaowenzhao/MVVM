@@ -21,7 +21,7 @@ abstract class BaseModel {
         return t.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun <T : Any> sub(t: Observable<T>, obs: DisposableObserver<T>): DisposableObserver<T> {
+    fun <T : Any,OBS: DisposableObserver<T>> sub(t: Observable<T>, obs: OBS): OBS {
         return sub(t).subscribeWith(obs)
     }
 

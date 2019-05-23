@@ -9,7 +9,7 @@ open class BaseVM : ViewModel(),BaseVMI{
     /**
      * 事件订阅
      */
-    override fun addSubscription(s: DisposableObserver<*>) {
+    override fun sub(s: DisposableObserver<*>) {
         if (mCompositeSubscription == null) {
             mCompositeSubscription = CompositeDisposable()
         }

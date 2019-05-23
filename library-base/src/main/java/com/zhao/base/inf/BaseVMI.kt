@@ -4,5 +4,5 @@ import io.reactivex.observers.DisposableObserver
 
 interface BaseVMI {
     fun unsubcrible()
-    fun addSubscription(s: DisposableObserver<*>)
+    fun sub(s: DisposableObserver<*>)
 }

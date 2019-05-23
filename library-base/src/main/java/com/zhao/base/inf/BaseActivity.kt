@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.gyf.barlibrary.ImmersionBar
+import com.zhao.base.R
 import com.zhao.base.utils.eventbus.EventBusUtil
 import java.lang.reflect.ParameterizedType
 
@@ -18,6 +19,9 @@ import java.lang.reflect.ParameterizedType
  */
 abstract class BaseActivity<V : ViewDataBinding,VM:ViewModel> : AppCompatActivity(){
     open var isEventbus = false
+    open var darkMode: Boolean = false
+    open var fitsSystemWindows = false
+    open var statusBarColor = R.color.white
     lateinit var context: Context
     abstract var layoutId: Int
     lateinit var ui: V
@@ -31,7 +35,12 @@ abstract class BaseActivity<V : ViewDataBinding,VM:ViewModel> : AppCompatActivit
         if (isEventbus) {
             EventBusUtil.register(this)
         }
-        ImmersionBar.with(this).init()
+        ImmersionBar.with(this)
+            .statusBarColor(statusBarColor)
+            .statusBarDarkFont(darkMode, 0.2f)
+            .fitsSystemWindows(fitsSystemWindows)
+            .navigationBarColor(R.color.c_3c4f5e)
+            .init()
         initView()
         initData()
     }

@@ -11,6 +11,12 @@ android {
         versionName verName
         flavorDimensions "versionCode"
     }
+    android {
+        compileOptions {
+            sourceCompatibility 1.8
+            targetCompatibility 1.8
+        }
+    }
     signingConfigs {
         signing {
             //签名秘钥库文件的存放的位置，这里使用的是相对路径
@@ -59,7 +65,7 @@ android {
         enabled true
     }
 
-    productFlavors {
+/*    productFlavors {
         // 应用商店记录来源
         // 动态添加 string.xml 字段；
         // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
@@ -70,7 +76,7 @@ android {
         productFlavors.all { flavor ->
             flavor.manifestPlaceholders = [CHANNEL_NAME: name]
         }
-    }
+    }*/
 
     // 这里修改apk打包时的名字
     android.applicationVariants.all { variant ->

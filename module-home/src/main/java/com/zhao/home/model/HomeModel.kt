@@ -1,13 +1,42 @@
 package com.zhao.home.model
 
+import android.databinding.ObservableArrayList
+import android.util.Log
+import android.util.SparseArray
+import com.hzcf.model.home.bean.AfficheBean
+import com.hzcf.model.home.bean.BidBean
+import com.hzcf.model.home.bean.HomeDataBean
+import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
 import com.zhao.base.http.Client
-import com.zhao.base.http.bean.BaseBean
+import com.zhao.base.http.Client.api
 import com.zhao.base.model.BaseModel
+import io.reactivex.Observable
 import io.reactivex.observers.DisposableObserver
 
 class HomeModel : BaseModel(){
-    fun  getBannerList(observer: BaseObs<Any>) : DisposableObserver<BaseBean<Any>> {
-        return sub(Client.api.getBannerList(),observer)
+    private val ANDROID = "3"
+    fun getHomeInfo(obs: BaseObs<HomeDataBean>): BaseObs<HomeDataBean> {
+        return sub(Client.api.getHomeInfo(mapOf("platform" to ANDROID)), obs)
     }
+    fun getAffiche(obs: BaseObs<AfficheBean>): BaseObs<AfficheBean> {
+        return sub(api.getAffiche(mapOf("platform" to ANDROID)), obs)
+    }
+    fun getBidList(obs: BaseObs<List<BidBean>>): BaseObs<List<BidBean>> {
+        return sub(api.getbidList(mapOf("platform" to ANDROID)), obs)
+    }
+
+    fun getBottomText(obs: BaseObs<String>): BaseObs<String> {
+        return sub(api.getBottomText(mapOf("platform" to ANDROID)), obs)
+    }
+
+   fun convertData(multiData:SparseArray<Any>, obs: DisposableObserver<ObservableArrayList<MultiItemEntity>>){
+         sub(Observable.create { emitter ->
+            Log.i("HomeModel", " 线程：+ ${Thread.currentThread().name}")
+            val datas = ConvertDataUtil.convertData(multiData)
+            emitter.onNext(datas)
+        }, obs)
+    }
+
+
 }

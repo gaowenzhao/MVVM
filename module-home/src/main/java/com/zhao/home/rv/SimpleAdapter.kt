@@ -4,11 +4,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.zhao.base.adapter.BaseAdapter
 import com.zhao.home.rv.vh.BannerVH
-import com.zhao.home.vm.rv.BannerVM
+import com.zhao.home.vm.rv.BannerBean
 
 
-class SimpleAdapter:BaseAdapter<BannerVM>(){
+class SimpleAdapter:BaseAdapter<BannerBean>(){
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
-        return BannerVH(p0)
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+    /*  override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
+          return BannerVH(p0)
+      }*/
 }

@@ -16,6 +16,10 @@ android {
         versionCode verCode
         versionName verName
     }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']

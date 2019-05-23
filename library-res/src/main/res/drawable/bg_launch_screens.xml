@@ -13,12 +13,12 @@
     <item>
         <bitmap
             android:gravity="top|right"
-            android:src="@mipmap/github" />
+            android:src="@mipmap-xxxhdpi/github" />
     </item>
     &lt;!&ndash;最下面的文字&ndash;&gt;
     <item android:bottom="50dp">
         <bitmap
             android:gravity="bottom"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap-xxxhdpi/ic_launcher" />
     </item>-->
 </layer-list>

@@ -21,7 +21,7 @@ import java.lang.reflect.ParameterizedType
 /**
  * Fragment父类
  */
-abstract class BaseFragment<V : ViewDataBinding, VM : ViewModel> : SimpleImmersionFragment() {
+abstract class BaseFragment<V : ViewDataBinding, VM : BaseVM> : SimpleImmersionFragment() {
     open var isEventbus = false
     var mRootView: View? = null
     lateinit var mContext: Context
@@ -101,6 +101,7 @@ abstract class BaseFragment<V : ViewDataBinding, VM : ViewModel> : SimpleImmersi
         if (isEventbus) {
             EventBusUtil.unregister(this)
         }
+        vm.unsubcrible()
         super.onDestroy()
     }
 

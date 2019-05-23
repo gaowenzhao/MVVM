@@ -28,7 +28,7 @@ class HeaderUtils {
 
         @JvmStatic
         fun getPlatform(): String {
-            return "1"
+            return "2"
         }
 
         /***获取版本号*/

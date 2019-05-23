@@ -53,15 +53,13 @@ object PermissionUtils {
         if (cancelable) {
             val permissionNames = transformText(permissions)
             val content = context.getString(R.string.permission_desc, TextUtils.join(" ", permissionNames))
-            val settingService = AndPermission.with(context).runtime().setting()
+            val settingService = AndPermission.with(context).runtime()
             AlertDialog.Builder(context)
                 .setTitle("权限提示")
                 .setCancelable(false)
                 .setMessage(content)
                 .setPositiveButton("同意") { _, _ ->
-                    settingService.onComeback {
-                        Toast.makeText(context, "同意", Toast.LENGTH_LONG).show()
-                    }
+
                 }
                 .show()
         } else {

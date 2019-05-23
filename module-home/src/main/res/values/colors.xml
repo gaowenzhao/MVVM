@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <color name="c_00000000">#00000000</color>
+ <color name="c_333">#333333</color>
+ <color name="c_ff7800">#ff7800</color>
+ <color name="white">#ffffff</color>
+ <color name="black">#000000</color>
+ <color name="c_37394d">#37394D</color>
+ <color name="c_b6">#b6b6b6</color>
+ <color name="c_fef8f2">#FEF8F2</color>
+ <color name="c_eee">#EEEEEE</color>
+ <color name="c_999">#999999</color>
+ <color name="c_f76432">#F76432</color>
+ <!--状态栏颜色-->
+ <color name="c_3c4f5e">#3C4F5E</color>
+ <color name="c_bcbdd0">#BCBDD0</color>
+ <color name="c_b6babd">#B6BABD</color>
+ <color name="c_ececec">#ECECEC</color>
+ <color name="c_666666">#666666</color>
+ <color name="c_999999">#999999</color>
+ <color name="c_b6b6b6">#B6B6B6</color>
+ <color name="c_FFFBF8">#FFFBF8</color>
+ <color name="c_e6e6e6">#e6e6e6</color>
+
+ <color name="c_d3d3d3">#d3d3d3</color>
+ <color name="c_e0e0e0">#E0E0E0</color>
+ <color name="c_030303">#030303</color>
+ <color name="c_d9dde2">#D9DDE2</color>
+ <color name="c_f2f2f2">#F2F2F2</color>
+ <color name="c_f5">#F5F5F5</color>
+ <color name="c_1affffff">#1affffff</color>
+ <color name="c_40b22e">#40B22E</color>
+
+</resources>

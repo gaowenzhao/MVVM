@@ -12,7 +12,7 @@ abstract class BaseObs<T:Any> : DisposableObserver<BaseBean<T>>() {
         if(t.isSuccess()){
             onSuccess(t,t?.data)
         }else{
-            onError(t.code, t.message)
+            onError(t)
         }
     }
     override fun onError(e: Throwable) {
@@ -26,6 +26,8 @@ abstract class BaseObs<T:Any> : DisposableObserver<BaseBean<T>>() {
             onError(-9999, msg!!)
         }
     }
-    open fun onError(code: Int, msg: String) {}
-    abstract fun onSuccess(t: BaseBean<T>,data:T?)
+    open fun onError(t: BaseBean<T>) {}
+    open fun onError(code:Int,msg:String){}
+    open fun onSuccess(t: BaseBean<T>,data:T?){onSuccess(data)}
+    open fun onSuccess(data:T?){}
 }
