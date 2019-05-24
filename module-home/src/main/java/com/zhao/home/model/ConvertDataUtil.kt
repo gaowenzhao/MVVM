@@ -36,8 +36,8 @@ object ConvertDataUtil {
             addItem(VHType.ADVER.code, advers, MAXSPAN_SIZE, datas)
         }
         //公告
-        val afficheBean = multiData[1] as AfficheBean
-        addItem(VHType.AFFICHE.code, afficheBean, MAXSPAN_SIZE, datas)
+//        val afficheBean = multiData[1] as AfficheBean
+//        addItem(VHType.AFFICHE.code, afficheBean, MAXSPAN_SIZE, datas)
         //信息披露、合众数据、新手奖励、签到有奖
         var normalEntrance = homeDataBean.normalEntrance
         if(normalEntrance!=null&&!normalEntrance.isEmpty()){
@@ -46,24 +46,23 @@ object ConvertDataUtil {
                 addItem(VHType.NORMALENTRANCE.code, item, MAXSPAN_SIZE / entranceSize, datas)
             }
         }
-        addDiver(datas)
+//        addDiver(datas)
         //便捷窗口
-        var facilewentryBean = homeDataBean.facilewentry
+    /*    var facilewentryBean = homeDataBean.facilewentry
         if (facilewentryBean!=null){
             addSection(facilewentryBean.image,facilewentryBean.firstTitle,facilewentryBean.secondTitle,datas = datas)
             var facilewentrySize = facilewentryBean.facilewentry.size
             for (item in facilewentryBean.facilewentry){
                 addItem(VHType.QUICKWINDOW.code, item, MAXSPAN_SIZE / facilewentrySize,  datas)
             }
-        }
+        }*/
         //标列表
-        addDiverLine(datas)
+//        addDiverLine(datas)
         val bidList = multiData[2] as List<BidBean>
         for (item in bidList) {
             addItem(VHType.BID.code, item, MAXSPAN_SIZE,  datas)
-            addDiverLine(datas)
         }
-        addDiver(datas)
+     /*   addDiver(datas)
         var investmentFlow = homeDataBean.investmentFlow
         if (investmentFlow != null) {
             //投资流程的section
@@ -97,7 +96,7 @@ object ConvertDataUtil {
         }
         addDiver(datas,VHType.WHITEDIVER.code)
         val bottomText = multiData[3] as String
-        addItem(VHType.BOTTOMTEXT.code,bottomText,MAXSPAN_SIZE,datas)
+        addItem(VHType.BOTTOMTEXT.code,bottomText,MAXSPAN_SIZE,datas)*/
         return datas
     }
     fun createDefaultData(state: BeanError.StateError):List<MultiItemEntity>{
