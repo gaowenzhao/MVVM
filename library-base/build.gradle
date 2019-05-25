@@ -59,6 +59,10 @@ dependencies {
     api 'com.bigkoo:convenientbanner:2.0.5'
     api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
 
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-26'
+//    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-26'//没有使用特殊Header，可以不加这行
+//    api 'com.android.support:appcompat-v7:25.3.1'//版本 23以上（必须）
+
 //    api 'com.github.gaowenzhao:FingerRecoDemo:1.0.3'
 //    api 'com.google.android.exoplayer:exoplayer:2.7.2'
 
