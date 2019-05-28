@@ -5,7 +5,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 
 open class BaseVM : ViewModel(),BaseVMI{
-    private var mCompositeSubscription: CompositeDisposable? = null
     /**
      * 事件订阅
      */
@@ -15,6 +14,7 @@ open class BaseVM : ViewModel(),BaseVMI{
         }
         mCompositeSubscription?.add(s)
     }
+    private var mCompositeSubscription: CompositeDisposable? = null
 
     override fun unsubcrible() {
         if (this.mCompositeSubscription != null) {

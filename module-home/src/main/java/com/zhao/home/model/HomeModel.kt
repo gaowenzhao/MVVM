@@ -7,12 +7,12 @@ import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
 import com.zhao.base.http.Client
 import com.zhao.base.model.BaseModel
+import com.zhao.base.rx.SimplaObserver
 import com.zhao.home.bean.AfficheBean
 import com.zhao.home.bean.BidBean
 import com.zhao.home.bean.HomeDataBean
 import com.zhao.home.http.Client.api
 import io.reactivex.Observable
-import io.reactivex.observers.DisposableObserver
 
 class HomeModel : BaseModel(){
     private val ANDROID = "3"
@@ -34,7 +34,7 @@ class HomeModel : BaseModel(){
         return sub(api.getBottomText(mapOf("platform" to ANDROID)), obs)
     }
 
-   fun convertData(multiData: SparseArray<Any>, obs: DisposableObserver<ObservableArrayList<MultiItemEntity>>){
+   fun convertData(multiData: SparseArray<Any>, obs: SimplaObserver<ObservableArrayList<MultiItemEntity>>){
          sub(Observable.create { emitter ->
             Log.i("HomeModel", " 线程：+ ${Thread.currentThread().name}")
             val datas = ConvertDataUtil.convertData(multiData)

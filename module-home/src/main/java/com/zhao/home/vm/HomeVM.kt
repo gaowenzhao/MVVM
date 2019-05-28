@@ -5,11 +5,11 @@ import android.util.SparseArray
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
 import com.zhao.base.inf.BaseVM
+import com.zhao.base.rx.SimplaObserver
 import com.zhao.home.bean.AfficheBean
 import com.zhao.home.bean.BidBean
 import com.zhao.home.bean.HomeDataBean
 import com.zhao.home.model.HomeModel
-import io.reactivex.observers.DisposableObserver
 
 class HomeVM : BaseVM() {
     var vmCallBack:VMCallBack? = null
@@ -50,9 +50,7 @@ class HomeVM : BaseVM() {
         sub(mod.getBottomText(object : BaseObs<String>() {
             override fun onSuccess(data: String?) {
                 multiData.put(3,data)
-                mod.convertData(multiData,object : DisposableObserver<ObservableArrayList<MultiItemEntity>>(){
-                    override fun onComplete() {}
-                    override fun onError(e: Throwable) {}
+                mod.convertData(multiData,object :SimplaObserver<ObservableArrayList<MultiItemEntity>>(){
                     override fun onNext(t: ObservableArrayList<MultiItemEntity>) {
                         vmCallBack?.onSuccess(t)
                     }

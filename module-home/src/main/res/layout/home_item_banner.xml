@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
 
     </data>
+
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <com.bigkoo.convenientbanner.ConvenientBanner
                 android:id="@+id/convenientBanner"
                 android:layout_width="0dp"
@@ -16,7 +20,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:canLoop="true"
                 android:background="@color/white"
-        />
+                />
+
         <TextView
                 android:id="@+id/tv_no"
                 android:layout_width="wrap_content"
@@ -31,7 +36,7 @@
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-        />
+                />
     </android.support.constraint.ConstraintLayout>
 </layout>
 
