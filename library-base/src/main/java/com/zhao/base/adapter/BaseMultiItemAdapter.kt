@@ -5,10 +5,9 @@ import android.databinding.ObservableArrayList
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 
-abstract class BaseMultiItemAdapter(val datas:ObservableArrayList<MultiItemEntity> = ObservableArrayList()) : ObservableAdapter<MultiItemEntity>(datas),MutableList<MultiItemEntity> by datas{
+abstract class BaseMultiItemAdapter(val datas:ObservableArrayList<MultiItemEntity>) : ObservableAdapter<MultiItemEntity>(datas),MutableList<MultiItemEntity> by datas{
      override fun onBindViewHolder(vh: RecyclerView.ViewHolder, position: Int) {
          (vh as BaseViewHolder<ViewDataBinding,BaseObservable>).initData(datas[position].getData() as Any)
      }
