@@ -32,8 +32,8 @@ captures/
 *.iml
 */*.iml
 
-#gradle-wrapper.jar
-
+# Keystore files
+#*.jks
 
 #some local files
 */.settings/
