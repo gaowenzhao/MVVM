@@ -1,5 +1,4 @@
 package com.zhao.base.inf
 
-import android.databinding.ViewDataBinding
-
+import androidx.databinding.ViewDataBinding
 abstract class BaseSimpleFragment<V : ViewDataBinding> : BaseFragment<V,BaseVM>()

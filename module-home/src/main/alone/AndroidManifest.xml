@@ -18,14 +18,5 @@
             </intent-filter>
         </activity>
         <activity android:name="com.zhao.base.debug.ContainerActivity"/>
-
-        <activity android:name=".debug.TestActivity">
-        </activity>
-       <activity android:name=".debug.MyTestActivity">
-        <!-- <intent-filter>
-               <action android:name="android.intent.action.MAIN" />
-               <category android:name="android.intent.category.LAUNCHER" />
-           </intent-filter>-->
-        </activity>
     </application>
 </manifest>

@@ -1,18 +1,16 @@
 package com.zhao.base.inf
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v4.view.ViewCompat
+import androidx.core.view.ViewCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.gyf.barlibrary.ImmersionBar
-import com.gyf.barlibrary.SimpleImmersionFragment
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import com.gyf.immersionbar.components.SimpleImmersionFragment
+import com.gyf.immersionbar.ktx.immersionBar
 import com.zhao.base.R
 import com.zhao.base.utils.eventbus.EventBusUtil
 import java.lang.reflect.ParameterizedType
@@ -72,12 +70,11 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseVM> : SimpleImmersionF
     }
 
     override fun initImmersionBar() {
-        ImmersionBar.with(this)
-            .statusBarColor(statusBarColor)
-            .statusBarDarkFont(darkMode, 0.2f)
-            .fitsSystemWindows(fitsSystemWindows)
-            .navigationBarColor(R.color.c_3c4f5e)
-            .init()
+        immersionBar {
+            statusBarColor(statusBarColor)
+            statusBarDarkFont(darkMode, 0.2f)
+            fitsSystemWindows(fitsSystemWindows)
+        }
     }
     private fun getClassType(): Class<VM> {
         val genType = this.javaClass.genericSuperclass
@@ -97,12 +94,15 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseVM> : SimpleImmersionF
             onUserInvisible()
         }
     }
-    override fun onDestroy() {
+    private fun eventBusOFF(){
         if (isEventbus) {
             EventBusUtil.unregister(this)
         }
-        vm.unsubcrible()
+    }
+    override fun onDestroy() {
         super.onDestroy()
+        eventBusOFF()
+        vm.unsubcrible()
     }
 
     override fun getContext(): Context {

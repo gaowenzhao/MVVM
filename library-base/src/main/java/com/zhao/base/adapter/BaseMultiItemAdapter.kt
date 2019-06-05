@@ -1,15 +1,13 @@
 package com.zhao.base.adapter
 
-import android.databinding.BaseObservable
-import android.databinding.ObservableArrayList
-import android.databinding.ViewDataBinding
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.BaseObservable
+import androidx.databinding.ObservableArrayList
+import androidx.databinding.ViewDataBinding
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 
-abstract class BaseMultiItemAdapter(val datas:ObservableArrayList<MultiItemEntity>) : ObservableAdapter<MultiItemEntity>(datas),MutableList<MultiItemEntity> by datas{
-     override fun onBindViewHolder(vh: RecyclerView.ViewHolder, position: Int) {
-         (vh as BaseViewHolder<ViewDataBinding,BaseObservable>).initData(datas[position].getData() as Any)
+abstract class BaseMultiItemAdapter(val datas: ObservableArrayList<MultiItemEntity>) : ObservableAdapter<MultiItemEntity>(datas),MutableList<MultiItemEntity> by datas{
+     override fun onBindViewHolder(vh: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
+         (vh as BaseViewHolder<ViewDataBinding, BaseObservable>).initData(datas[position].getData() as Any)
      }
      override fun getItemCount(): Int {
         return  datas.size
@@ -18,11 +16,11 @@ abstract class BaseMultiItemAdapter(val datas:ObservableArrayList<MultiItemEntit
         return datas[position].getItemType()
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+    override fun onAttachedToRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
         val manager = recyclerView.layoutManager
-        if (manager is GridLayoutManager) {
-            manager.spanSizeLookup = object:GridLayoutManager.SpanSizeLookup(){
+        if (manager is androidx.recyclerview.widget.GridLayoutManager) {
+            manager.spanSizeLookup = object: androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup(){
                 override fun getSpanSize(p0: Int): Int {
                     return datas[p0].getSpanSize()
                 }

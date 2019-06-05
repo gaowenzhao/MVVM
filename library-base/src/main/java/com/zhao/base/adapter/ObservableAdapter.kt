@@ -1,9 +1,9 @@
 package com.zhao.base.adapter
 
-import android.databinding.ObservableArrayList
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.ObservableArrayList
 
-abstract class ObservableAdapter<E>(datas: ObservableArrayList<E>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+
+abstract class ObservableAdapter<E>(datas: ObservableArrayList<E>): androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>(){
     init {
         datas.addOnListChangedCallback(createListChangedListener())
     }

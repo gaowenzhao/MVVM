@@ -63,7 +63,7 @@ object Httper {
         updateRequest = request.newBuilder()
           .header("Cache-Control", cacheControl)
           .header("Content-Type", "application/json; charset=UTF-8")
-          .header("imei", HeaderUtils.getIMEI())
+//          .header("imei", HeaderUtils.getIMEI())//需要动态申请权限
           .header("client", HeaderUtils.getPlatform())
           .header("version", HeaderUtils.getVersionName())
           .header("id", token)

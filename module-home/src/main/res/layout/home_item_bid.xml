@@ -3,7 +3,7 @@
     <data>
      <variable name="bean" type="com.zhao.home.bean.BidBean"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="26dp"
@@ -89,5 +89,5 @@
                 android:drawablePadding="@dimen/dp_1"
                 android:drawableLeft="@mipmap/ic_home_bid_bottom_text"
         />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

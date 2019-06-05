@@ -20,13 +20,13 @@ android {
     signingConfigs {
         signing {
             //签名秘钥库文件的存放的位置，这里使用的是相对路径
-            storeFile file('/key/qmwallet.jks')
+            storeFile file('hzed.jks')
             //秘钥库的访问密码
-            storePassword 'qmwalet123'
+            storePassword 'hzed123'
             //别名，因为一个密码库可以供多个项目使用，所以别名不同，最后的签名也是不同的
-            keyAlias 'qmwalet'
+            keyAlias 'rootjacks'
             //别名的私钥密码
-            keyPassword 'qmwalet123'
+            keyPassword 'hzed123'
             v1SigningEnabled true
             v2SigningEnabled true
         }
@@ -54,7 +54,7 @@ android {
             // Zipalign优化
             zipAlignEnabled true
             // 移除无用的resource文件
-//            shrinkResources true
+            shrinkResources true
             // 加载默认混淆配置文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             // 签名
@@ -65,7 +65,7 @@ android {
         enabled true
     }
 
-/*    productFlavors {
+    productFlavors {
         // 应用商店记录来源
         // 动态添加 string.xml 字段；
         // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
@@ -76,7 +76,7 @@ android {
         productFlavors.all { flavor ->
             flavor.manifestPlaceholders = [CHANNEL_NAME: name]
         }
-    }*/
+    }
 
     // 这里修改apk打包时的名字
     android.applicationVariants.all { variant ->
@@ -86,20 +86,17 @@ android {
             def channelName
             if (!variant.buildType.isDebuggable()) {
                 // 这里修改apk文件名
-                // 输出apk名称为:组件化应用_20180102_dEr43F_V1.5.9_3G门户.apk
+                // 输出apk名称为:组件化应用_20190604_pingtai_v3.0.4_app平台.apk
                 variant.productFlavors.each { product ->
                     buildName = product.name
                     appName = product.resValues.get("APP_NAME").value
                     channelName = product.buildConfigFields.get("ALIAS").value.replaceAll("\"", "")
                 }
-//                outputFileName = "组件化应用_${buildTime()}_${variant.name}_v${variant.versionNamexx}.apk"
                 outputFileName = "${appName}_${buildTime()}_${buildName}_v${variant.versionName}_${channelName}.apk"
                 variant.packageApplication.outputDirectory = new File("./apk")
             }
         }
     }
-//    aaptOptions.cruncherEnabled = false
-//    aaptOptions.useNewCruncher = false
 }
 
 static def buildTime() {

@@ -1,6 +1,6 @@
 package com.zhao.home.vm
 
-import android.databinding.ObservableArrayList
+import androidx.databinding.ObservableArrayList
 import android.util.SparseArray
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
@@ -12,10 +12,9 @@ import com.zhao.home.bean.HomeDataBean
 import com.zhao.home.model.HomeModel
 
 class HomeVM : BaseVM() {
-    var vmCallBack:VMCallBack? = null
     private val mod = HomeModel()
+    var homeDatas: ObservableArrayList<MultiItemEntity> = ObservableArrayList()
     private val multiData = SparseArray<Any>()
-
     fun getAllData() {
         getHomeInfo()
     }
@@ -38,8 +37,12 @@ class HomeVM : BaseVM() {
     }
 
     private fun getBidList() {
-        sub(mod.getBidList(object : BaseObs<List<BidBean>>() {
-            override fun onSuccess(data: List<BidBean>?) {
+        sub(mod.getBidList(object : BaseObs<ArrayList<BidBean>>() {
+            override fun onSuccess(data: ArrayList<BidBean>?) {
+                data?.addAll(data)
+                data?.addAll(data)
+                data?.addAll(data)
+                data?.addAll(data)
                 multiData.put(2,data)
                 getBottomText()
             }
@@ -52,13 +55,14 @@ class HomeVM : BaseVM() {
                 multiData.put(3,data)
                 mod.convertData(multiData,object :SimplaObserver<ObservableArrayList<MultiItemEntity>>(){
                     override fun onNext(t: ObservableArrayList<MultiItemEntity>) {
-                        vmCallBack?.onSuccess(t)
+                        updateData(t)
                     }
                 })
             }
         }))
     }
-    interface VMCallBack {
-        fun onSuccess(data:ObservableArrayList<MultiItemEntity>)
+    private fun updateData(t: ObservableArrayList<MultiItemEntity>){
+        homeDatas.clear()
+        homeDatas.addAll(t)
     }
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.zhao.base.BuildConfig
+
 open class BaseApplication :Application(){
     companion object {
         @JvmStatic
@@ -16,7 +17,6 @@ open class BaseApplication :Application(){
         instance = this
         initARouter()
     }
-
     private fun initARouter() {
         if (BuildConfig.DEBUG) {
             ARouter.openLog()

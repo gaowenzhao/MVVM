@@ -1,12 +1,14 @@
 package com.zhao.base.http
 
 import android.text.TextUtils
+import android.util.Log
 import com.zhao.base.http.bean.BaseBean
 import com.zhao.base.utils.NetUtils
 import io.reactivex.observers.DisposableObserver
 
 abstract class BaseObs<T:Any> : DisposableObserver<BaseBean<T>>() {
     override fun onComplete() {
+        Log.i("BaseObs","onComplete")
     }
     override fun onNext(t: BaseBean<T>){
         if(t.isSuccess()){

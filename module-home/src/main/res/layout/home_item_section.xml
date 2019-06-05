@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/dp_10"
-    android:paddingRight="@dimen/dp_10"
-    android:paddingTop="@dimen/dp_18"
-    android:paddingBottom="@dimen/dp_18"
-    android:background="@color/white">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:orientation="horizontal"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:paddingLeft="@dimen/dp_10"
+                                                   android:paddingRight="@dimen/dp_10"
+                                                   android:paddingTop="@dimen/dp_18"
+                                                   android:paddingBottom="@dimen/dp_18"
+                                                   android:background="@color/white">
    <ImageView
        android:id="@+id/iv_pic"
        android:layout_width="@dimen/dp_22"
@@ -58,4 +58,4 @@
        app:layout_constraintRight_toRightOf="parent"
         android:drawablePadding="@dimen/dp_5"
         />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

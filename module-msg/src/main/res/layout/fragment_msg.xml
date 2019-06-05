@@ -8,7 +8,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorAccent"
             android:orientation="vertical">
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -18,6 +18,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="消息组件"/>
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
     </LinearLayout>
 </layout>

@@ -1,5 +1,5 @@
 package com.zhao.home.model
-import android.databinding.ObservableArrayList
+import androidx.databinding.ObservableArrayList
 import android.text.TextUtils
 import android.util.SparseArray
 import com.hzcf.model.base.error.BeanError

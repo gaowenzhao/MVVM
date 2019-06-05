@@ -1,6 +1,6 @@
 package com.zhao.home.model
 
-import android.databinding.ObservableArrayList
+import androidx.databinding.ObservableArrayList
 import android.util.Log
 import android.util.SparseArray
 import com.zhao.base.adapter.multityppe.MultiItemEntity
@@ -26,7 +26,7 @@ class HomeModel : BaseModel(){
     fun getAffiche(obs: BaseObs<AfficheBean>): BaseObs<AfficheBean> {
         return sub(api.getAffiche(mapOf("platform" to ANDROID)), obs)
     }
-    fun getBidList(obs: BaseObs<List<BidBean>>): BaseObs<List<BidBean>> {
+    fun getBidList(obs: BaseObs<ArrayList<BidBean>>): BaseObs<ArrayList<BidBean>> {
         return sub(api.getbidList(mapOf("platform" to ANDROID)), obs)
     }
 

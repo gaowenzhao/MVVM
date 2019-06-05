@@ -1,8 +1,8 @@
 package com.zhao.main
 
-import android.support.v4.app.Fragment
-import com.zhao.base.inf.BaseSimpleActivity
+import androidx.fragment.app.Fragment
 import com.zhao.base.inf.BaseFragment
+import com.zhao.base.inf.BaseSimpleActivity
 import com.zhao.base.utils.router.RouterClient
 import com.zhao.base.utils.router.RouterUrl
 import com.zhao.main.databinding.MainActivityBinding

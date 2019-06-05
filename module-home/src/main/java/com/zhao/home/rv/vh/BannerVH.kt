@@ -1,5 +1,5 @@
 package com.zhao.home.rv.vh
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.view.ViewGroup
 import com.bigkoo.convenientbanner.ConvenientBanner
 import com.zhao.base.adapter.BaseViewHolder
@@ -10,10 +10,9 @@ import com.zhao.home.view.BannerCreator
 
 class BannerVH(vg: ViewGroup): BaseViewHolder<HomeItemBannerBinding, List<BannerBean>>(R.layout.home_item_banner,vg){
     override fun bindData() {
-        BannerCreator.setDefault(ui.convenientBanner as ConvenientBanner<BannerBean>, mData, com.bigkoo.convenientbanner.listener.OnItemClickListener {
-        })
+        BannerCreator.setDefault(ui.convenientBanner as ConvenientBanner<BannerBean>, mData, com.bigkoo.convenientbanner.listener.OnItemClickListener {})
         ui.tvNo?.text = "1/${mData.size}"
-        ui.convenientBanner.onPageChangeListener = object : ViewPager.OnPageChangeListener {
+        ui.convenientBanner.onPageChangeListener = object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(p0: Int) {}
             override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {}
             override fun onPageSelected(p0: Int) {

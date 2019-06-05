@@ -32,7 +32,7 @@ interface RestApi {
      * 获取标
      */
     @GET("/refactoring/investment/common/bidList")
-    fun getbidList(@QueryMap map: Map<String, String>): Observable<BaseBean<List<BidBean>>>
+    fun getbidList(@QueryMap map: Map<String, String>): Observable<BaseBean<ArrayList<BidBean>>>
 
     /**
      * 获取首页底部文案

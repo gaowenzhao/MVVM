@@ -1,15 +1,13 @@
 package com.zhao.base.inf
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import com.gyf.barlibrary.ImmersionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import com.gyf.immersionbar.ktx.immersionBar
 import com.zhao.base.R
 import com.zhao.base.utils.eventbus.EventBusUtil
 import java.lang.reflect.ParameterizedType
@@ -17,7 +15,7 @@ import java.lang.reflect.ParameterizedType
 /**
  * BaseActivity父类
  */
-abstract class BaseActivity<V : ViewDataBinding,VM:ViewModel> : AppCompatActivity(){
+abstract class BaseActivity<V : ViewDataBinding, VM : ViewModel> : AppCompatActivity() {
     open var isEventbus = false
     open var darkMode: Boolean = false
     open var fitsSystemWindows = false
@@ -28,29 +26,30 @@ abstract class BaseActivity<V : ViewDataBinding,VM:ViewModel> : AppCompatActivit
     val vm by lazy {
         ViewModelProviders.of(this).get(getClassType())
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
-        ui = DataBindingUtil.setContentView(this,layoutId)
+        ui = DataBindingUtil.setContentView(this, layoutId)
         if (isEventbus) {
             EventBusUtil.register(this)
         }
-        ImmersionBar.with(this)
-            .statusBarColor(statusBarColor)
-            .statusBarDarkFont(darkMode, 0.2f)
-            .fitsSystemWindows(fitsSystemWindows)
-            .navigationBarColor(R.color.c_3c4f5e)
-            .init()
+        immersionBar {
+            statusBarColor(statusBarColor)
+            statusBarDarkFont(darkMode, 0.2f)
+            fitsSystemWindows(fitsSystemWindows)
+        }
         initView()
         initData()
     }
+
     protected abstract fun initView()
     protected abstract fun initData()
     override fun onDestroy() {
+        super.onDestroy()
         if (isEventbus) {
             EventBusUtil.unregister(this)
         }
-        super.onDestroy()
     }
 
     private fun getClassType(): Class<VM> {

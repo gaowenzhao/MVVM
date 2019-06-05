@@ -78,6 +78,9 @@
 #okio
 -dontwarn okio.**
 -keep class okio.**{*;}
+#########immersionbar##########
+ -keep class com.gyf.immersionbar.* {*;}
+ -dontwarn com.gyf.immersionbar.**
 
 #------------------  下方是android平台自带的排除项，这里不要动         ----------------
 
