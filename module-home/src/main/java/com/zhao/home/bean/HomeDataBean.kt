@@ -1,9 +1,9 @@
 package com.zhao.home.bean
 
-import androidx.databinding.BaseObservable
+import android.databinding.BaseObservable
 
 
-class HomeDataBean :BaseObservable(){
+class HomeDataBean : BaseObservable(){
     var isLogin: Boolean = false
     var isFirstInvestment: Boolean = false
     var zongcoinmarket: MarketBean? = null //粽币商城

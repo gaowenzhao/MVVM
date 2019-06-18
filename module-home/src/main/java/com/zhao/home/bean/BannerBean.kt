@@ -1,6 +1,7 @@
 package com.zhao.home.bean
 
-import androidx.databinding.BaseObservable
+import android.databinding.BaseObservable
+
 
 class BannerBean : BaseObservable(){
     var id:Int = 0

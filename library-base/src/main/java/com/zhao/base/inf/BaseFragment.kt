@@ -1,14 +1,14 @@
 package com.zhao.base.inf
 
-import androidx.lifecycle.ViewModelProviders
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Bundle
-import androidx.core.view.ViewCompat
+import android.support.v4.view.ViewCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import com.gyf.immersionbar.components.SimpleImmersionFragment
 import com.gyf.immersionbar.ktx.immersionBar
 import com.zhao.base.R

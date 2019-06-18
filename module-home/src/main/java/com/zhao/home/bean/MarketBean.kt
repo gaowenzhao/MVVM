@@ -1,11 +1,12 @@
 package com.zhao.home.bean
 
-import androidx.databinding.BaseObservable
+import android.databinding.BaseObservable
+
 
 /**
  * gaowenzhao
  */
-class MarketBean :BaseObservable(){
+class MarketBean : BaseObservable(){
     lateinit var firstTitle:String
     lateinit var secondTitle:String
     lateinit var buttons:List<ButtonBean>

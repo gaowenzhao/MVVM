@@ -1,11 +1,12 @@
 package com.zhao.home.bean
 
-import androidx.databinding.BaseObservable
+import android.databinding.BaseObservable
+
 
 /**
  * 公告
  */
-class AfficheBean :BaseObservable(){
+class AfficheBean : BaseObservable(){
      var id : Int = 0
      lateinit var description: String
      var image: String? = null

@@ -1,7 +1,7 @@
 package com.zhao.base.debug
 
 import android.content.Intent
-import androidx.fragment.app.Fragment
+import android.support.v4.app.Fragment
 import com.zhao.base.R
 import com.zhao.base.databinding.ActivityContainerBinding
 import com.zhao.base.inf.BaseSimpleActivity
@@ -17,7 +17,7 @@ class ContainerActivity: BaseSimpleActivity<ActivityContainerBinding>(){
     }
     override fun initData() {
     }
-    private fun initFromIntent(data: Intent?): androidx.fragment.app.Fragment {
+    private fun initFromIntent(data: Intent?): Fragment {
         if (data == null) {
             throw RuntimeException(
                 "you must provide a page info to display"
@@ -29,7 +29,7 @@ class ContainerActivity: BaseSimpleActivity<ActivityContainerBinding>(){
                 throw IllegalArgumentException("can not find page fragmentName")
             }
             val fragmentClass = Class.forName(fragmentName)
-            val fragment = fragmentClass.newInstance() as androidx.fragment.app.Fragment
+            val fragment = fragmentClass.newInstance() as Fragment
             val args = data.getBundleExtra(BUNDLE)
             if (args != null) {
                 fragment.arguments = args

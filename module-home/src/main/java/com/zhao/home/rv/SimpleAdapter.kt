@@ -1,6 +1,5 @@
 package com.zhao.home.rv
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import com.zhao.base.adapter.BaseAdapter
 

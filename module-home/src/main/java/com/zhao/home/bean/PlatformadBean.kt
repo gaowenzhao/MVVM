@@ -1,12 +1,12 @@
 package com.zhao.home.bean
 
-import androidx.databinding.BaseObservable
+import android.databinding.BaseObservable
 
 
 /**
  * gaowenzhao
  */
-class PlatformadBean :BaseObservable(){
+class PlatformadBean : BaseObservable(){
     lateinit var firstTitle:String
     lateinit var secondTitle:String
     lateinit var image:String

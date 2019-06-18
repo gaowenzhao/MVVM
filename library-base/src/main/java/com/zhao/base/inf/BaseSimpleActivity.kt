@@ -1,6 +1,7 @@
 package com.zhao.base.inf
 
-import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModel
+import android.databinding.ViewDataBinding
 
-abstract class BaseSimpleActivity<V : ViewDataBinding> : BaseActivity<V,ViewModel>()
+
+abstract class BaseSimpleActivity<V : ViewDataBinding> : BaseActivity<V, ViewModel>()

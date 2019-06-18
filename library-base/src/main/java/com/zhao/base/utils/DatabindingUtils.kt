@@ -1,7 +1,7 @@
 package com.zhao.base.utils
 
+import android.databinding.BindingAdapter
 import android.widget.ImageView
-import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zhao.base.app.BaseApplication

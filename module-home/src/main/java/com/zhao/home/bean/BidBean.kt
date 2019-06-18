@@ -1,9 +1,9 @@
 package com.zhao.home.bean
 
-import androidx.databinding.BaseObservable
+import android.databinding.BaseObservable
 
 
-class BidBean:BaseObservable() {
+class BidBean: BaseObservable() {
     lateinit var apr: String         //年利率
     var extraApr: String? = null      //补充年利率
     lateinit var tag: String       //"新手专享/限投1次",

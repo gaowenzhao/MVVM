@@ -1,6 +1,6 @@
 package com.zhao.base.inf
 
-import androidx.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 

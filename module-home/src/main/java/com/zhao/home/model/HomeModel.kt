@@ -1,6 +1,6 @@
 package com.zhao.home.model
 
-import androidx.databinding.ObservableArrayList
+import android.databinding.ObservableArrayList
 import android.util.Log
 import android.util.SparseArray
 import com.zhao.base.adapter.multityppe.MultiItemEntity

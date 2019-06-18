@@ -1,12 +1,12 @@
 package com.zhao.base.inf
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProviders
+import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.support.v7.app.AppCompatActivity
 import com.gyf.immersionbar.ktx.immersionBar
 import com.zhao.base.R
 import com.zhao.base.utils.eventbus.EventBusUtil
