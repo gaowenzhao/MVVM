@@ -110,8 +110,6 @@ dependencies {
         //组件独立运行时，宿主项目直接依赖基础库，避免编译错误
         implementation project(':library-base')
     } else {
-        //主业务模块
-        implementation project(':module-main')
         //首页
         implementation project(':module-home')
         //消息模块
