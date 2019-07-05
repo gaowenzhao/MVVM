@@ -8,6 +8,7 @@ buildscript {
     ext.minSdk = 19
     ext.verName = '3.0.4'
     ext.verCode = 304
+    ext.navigationVersion = "2.0.0"
     //isBuildModule 为 true 时可以使每个组件独立运行, false 则可以将所有组件集成到宿主 App 中
     ext.isBuildModule = false
     repositories {
@@ -19,6 +20,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
         classpath 'com.alibaba:arouter-register:1.0.2'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
     }
 }
 

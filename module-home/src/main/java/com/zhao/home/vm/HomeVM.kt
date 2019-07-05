@@ -1,6 +1,6 @@
 package com.zhao.home.vm
 
-import android.databinding.ObservableArrayList
+import androidx.databinding.ObservableArrayList
 import android.util.SparseArray
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs

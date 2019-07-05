@@ -1,6 +1,6 @@
 package com.zhao.home.bean
 
-import android.databinding.BaseObservable
+import androidx.databinding.BaseObservable
 import com.zhao.base.http.CommonUrl
 
 class EntranceBean : BaseObservable(){

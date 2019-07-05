@@ -19,7 +19,7 @@ import android.Manifest.permission.WRITE_CONTACTS
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.app.Activity
 import android.content.Context
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.text.TextUtils
 import com.yanzhenjie.permission.AndPermission
 import com.yanzhenjie.permission.Permission.ACCESS_COARSE_LOCATION

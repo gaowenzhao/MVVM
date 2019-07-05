@@ -11,14 +11,14 @@
             android:supportsRtl="true"
             android:theme="@style/BaseAppTheme">
        <activity
-                android:name="com.zhao.main.SplashActivity"
+                android:name=".SplashActivity"
                 android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.zhao.main.MainActivity"/>
+        <activity android:name=".MainActivity"/>
         <!--沉浸式ImmersionBar适配-->
         <!--关于全面屏-->
         <meta-data

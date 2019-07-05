@@ -1,11 +1,11 @@
 package com.zhao.base.adapter
 
-import android.databinding.ObservableArrayList
-import android.databinding.ObservableList
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableList
+import androidx.recyclerview.widget.RecyclerView
 
 
-class ListChangedListener<E>(val adapter:RecyclerView.Adapter<RecyclerView.ViewHolder>) : ObservableList.OnListChangedCallback<ObservableArrayList<E>>() {
+class ListChangedListener<E>(val adapter: androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>) : ObservableList.OnListChangedCallback<ObservableArrayList<E>>() {
     //======================= main ============================
     override fun onChanged(sender: ObservableArrayList<E>?) {
         adapter.notifyDataSetChanged()

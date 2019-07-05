@@ -18029,7 +18029,7 @@ com.zhao.main.DataBinderMapperImpl -> com.zhao.main.a:
     int getLayoutId(java.lang.String) -> a
 com.zhao.main.DataBinderMapperImpl$InnerLayoutIdLookup -> com.zhao.main.a$a:
     java.util.HashMap sKeys -> a
-com.zhao.main.MainActivity -> com.zhao.main.MainActivity:
+com.zhao.module.MainActivity -> com.zhao.module.MainActivity:
     java.lang.String TAG -> y
     int layoutId -> z
     int position -> B
@@ -18041,18 +18041,18 @@ com.zhao.main.MainActivity -> com.zhao.main.MainActivity:
     void initView() -> c
     void initFragment() -> e
     void initListener() -> f
-com.zhao.main.MainActivity$initListener$1 -> com.zhao.main.b:
-    com.zhao.main.MainActivity this$0 -> a
+com.zhao.module.MainActivity$initListener$1 -> com.zhao.main.b:
+    com.zhao.module.MainActivity this$0 -> a
 com.zhao.main.R$id -> com.zhao.main.c:
 com.zhao.main.R$layout -> com.zhao.main.d:
-com.zhao.main.SplashActivity -> com.zhao.main.SplashActivity:
+com.zhao.module.SplashActivity -> com.zhao.module.SplashActivity:
     int layoutId -> y
     java.util.HashMap _$_findViewCache -> A
     android.os.Handler mHandler -> z
     void initData() -> b
     void initView() -> c
-com.zhao.main.SplashActivity$initView$1 -> com.zhao.main.e:
-    com.zhao.main.SplashActivity this$0 -> a
+com.zhao.module.SplashActivity$initView$1 -> com.zhao.main.e:
+    com.zhao.module.SplashActivity this$0 -> a
 com.zhao.main.databinding.MainActivityBinding -> com.zhao.main.a.a:
     android.widget.RadioButton rbHome -> z
     android.widget.FrameLayout container -> y

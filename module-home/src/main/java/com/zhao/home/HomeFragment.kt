@@ -1,7 +1,7 @@
 package com.zhao.home
 
-import android.support.v7.widget.GridLayoutManager
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.zhao.base.inf.BaseFragment
 import com.zhao.base.utils.router.RouterUrl
@@ -9,6 +9,7 @@ import com.zhao.home.databinding.FragmentHomeBinding
 import com.zhao.home.model.ConvertDataUtil.MAXSPAN_SIZE
 import com.zhao.home.rv.HomeAdapter
 import com.zhao.home.vm.HomeVM
+
 @Route(path = RouterUrl.Home.TabHome)
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(){
      override var darkMode: Boolean = true
