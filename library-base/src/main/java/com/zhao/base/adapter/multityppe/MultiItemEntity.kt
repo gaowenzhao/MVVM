@@ -10,7 +10,7 @@ class MultiItemEntity(var map:HashMap<Any,Any>) {
         }
     }
     fun getItemType(): Int {
-        return map[MultipleFields.VH_TYPE] as Int
+        return map[MultipleFields.ITEM_TYPE] as Int
     }
     fun getSpanSize():Int{
         return map[MultipleFields.SPAN_SIZE] as Int

@@ -17,13 +17,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:orientation="horizontal"
-        >
+                android:orientation="horizontal">
 
             <RadioButton
                     android:id="@+id/rb_home"
                     style="@style/MainButtonStyle"
                     android:drawableTop="@drawable/home_button_selector"
+                    android:checked="true"
                     android:text="首页"/>
 
             <RadioButton

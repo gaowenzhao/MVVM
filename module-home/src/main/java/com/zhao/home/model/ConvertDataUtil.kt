@@ -7,7 +7,6 @@ import com.hzcfapp.qmwallet.widget.recycler.MultipleFields
 import com.hzcfapp.qmwallet.widget.recycler.VHType
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.home.R
-import com.zhao.home.bean.AfficheBean
 import com.zhao.home.bean.BidBean
 import com.zhao.home.bean.HeaderSectionBean
 import com.zhao.home.bean.HomeDataBean
@@ -112,7 +111,7 @@ object ConvertDataUtil {
             headerSectionBean.findAll = findAll
         }
         var entity = MultiItemEntity.builder()
-                .setField(MultipleFields.VH_TYPE, VHType.HEADSECTION.code)
+                .setField(MultipleFields.ITEM_TYPE, VHType.HEADSECTION.code)
                 .setField(MultipleFields.CONTENT, headerSectionBean)
                 .setField(MultipleFields.SPAN_SIZE, MAXSPAN_SIZE)
                 .build()
@@ -121,7 +120,7 @@ object ConvertDataUtil {
 
     private fun addDiver(datas: ArrayList<MultiItemEntity>,vHType:Int=VHType.DIVER.code) {
         var entity = MultiItemEntity.builder()
-                .setField(MultipleFields.VH_TYPE,vHType)
+                .setField(MultipleFields.ITEM_TYPE,vHType)
                 .setField(MultipleFields.SPAN_SIZE, MAXSPAN_SIZE)
                 .build()
         datas.add(entity)
@@ -129,7 +128,7 @@ object ConvertDataUtil {
 
     private fun addDiverLine(datas: ArrayList<MultiItemEntity>) {
         var entity = MultiItemEntity.builder()
-                .setField(MultipleFields.VH_TYPE, VHType.DIVERLINE.code)
+                .setField(MultipleFields.ITEM_TYPE, VHType.DIVERLINE.code)
                 .setField(MultipleFields.SPAN_SIZE, MAXSPAN_SIZE)
                 .build()
         datas.add(entity)
@@ -137,7 +136,7 @@ object ConvertDataUtil {
 
     private fun addItem(vhType: Any, content: Any, spanSize: Int,datas: ArrayList<MultiItemEntity>,index:Int=0) {
         datas.add(MultiItemEntity.builder()
-                .setField(MultipleFields.VH_TYPE, vhType)
+                .setField(MultipleFields.ITEM_TYPE, vhType)
                 .setField(MultipleFields.CONTENT, content)
                 .setField(MultipleFields.SPAN_SIZE, spanSize)
                 .setField(MultipleFields.INDEX,index)

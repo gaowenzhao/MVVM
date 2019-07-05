@@ -10,7 +10,6 @@ import com.zhao.home.rv.vh.AdverVH
 import com.zhao.home.rv.vh.BannerVH
 import com.zhao.home.rv.vh.BidVH
 import com.zhao.home.rv.vh.NormalEntranceVH
-
 class HomeAdapter(datas: ObservableArrayList<MultiItemEntity>) : BaseMultiItemAdapter(datas) {
      override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
          return when (viewType) {

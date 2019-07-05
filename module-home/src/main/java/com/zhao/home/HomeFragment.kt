@@ -9,7 +9,6 @@ import com.zhao.home.databinding.FragmentHomeBinding
 import com.zhao.home.model.ConvertDataUtil.MAXSPAN_SIZE
 import com.zhao.home.rv.HomeAdapter
 import com.zhao.home.vm.HomeVM
-
 @Route(path = RouterUrl.Home.TabHome)
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(){
      override var darkMode: Boolean = true

@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
      <variable name="bean" type="com.zhao.home.bean.BidBean"/>
+        <variable name="clicker" type="com.zhao.base.inf.Clicker"/>
     </data>
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -73,6 +74,7 @@
                 android:background="@drawable/btn_shape_gradient"
                 android:gravity="center"
                 android:text="@{bean.buttonText}"
+                android:onClick="@{clicker}"
         />
         <TextView
                 android:id="@+id/tv_bid_bottom_text"

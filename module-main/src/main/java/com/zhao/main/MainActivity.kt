@@ -13,8 +13,6 @@ class MainActivity : BaseSimpleActivity<MainActivityBinding>() {
     //装fragment的实例集合
     private lateinit var fragments: ArrayList<BaseFragment<*, *>>
     private var position = 0
-    //缓存Fragment或上次显示的Fragment
-    private var tempFragment: Fragment? = null
 
     override fun initView() {
         initFragment()
@@ -32,43 +30,47 @@ class MainActivity : BaseSimpleActivity<MainActivityBinding>() {
         fragments.add(msgFragment)
         fragments.add(userFragment)
         //默认选中第一个
-        tempFragment = homeFragment
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.container, homeFragment)
         transaction.commitAllowingStateLoss()
     }
 
     private fun initListener() {
-        ui.rbHome.isChecked = true
         ui.rgMain.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
-                R.id.rb_home -> position = 0
-                R.id.rb_msg -> position = 1
-                R.id.rb_user -> position = 2
+                R.id.rb_home ->  {
+                    switchFragment(fragments[position], fragments[0])
+                    position = 0
+                }
+                R.id.rb_msg  ->  {
+                    switchFragment(fragments[position], fragments[1])
+                    position = 1
+                }
+                R.id.rb_user ->  {
+                    switchFragment(fragments[position], fragments[2])
+                    position = 2
+                }
+
             }
-            val baseFragment = fragments[position]
-            switchFragment(tempFragment, baseFragment)
+
         }
     }
 
-    private fun switchFragment(fragment: Fragment?, nextFragment: BaseFragment<*, *>?) {
-        if (tempFragment !== nextFragment) {
-            tempFragment = nextFragment!!
+    private fun switchFragment(hideFragment: Fragment, showFragment: BaseFragment<*, *>) {
+        if (hideFragment !== showFragment) {
             val transaction = supportFragmentManager.beginTransaction()
             //判断nextFragment是否添加成功
-            if (!nextFragment.isAdded) {
+            if (!showFragment.isAdded) {
                 //隐藏当前的Fragment
-                if (fragment != null) {
-                    transaction.hide(fragment)
-                }
+                 transaction.hide(hideFragment)
                 //添加Fragment
-                transaction.add(R.id.container, nextFragment).commitAllowingStateLoss()
+                transaction.add(R.id.container, showFragment).commitAllowingStateLoss()
             } else {
                 //隐藏当前Fragment
-                if (fragment != null) {
-                    transaction.hide(fragment)
+                if (hideFragment != null) {
+                    transaction.hide(hideFragment)
                 }
-                transaction.show(nextFragment).commitAllowingStateLoss()
+                transaction.show(showFragment).commitAllowingStateLoss()
             }
         }
     }

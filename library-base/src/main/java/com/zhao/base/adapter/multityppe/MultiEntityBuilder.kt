@@ -19,7 +19,7 @@ class MultiEntityBuilder : MultiEntityBuilderI {
         return this
     }
     override fun setVhType(value:Int):MultiEntityBuilder{
-        entityMap[MultipleFields.VH_TYPE] = value
+        entityMap[MultipleFields.ITEM_TYPE] = value
         return this
     }
     override fun setContent(value:Any):MultiEntityBuilder{

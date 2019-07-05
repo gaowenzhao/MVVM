@@ -4,7 +4,7 @@ package com.hzcfapp.qmwallet.widget.recycler
  * gaowenzhao
  */
 enum class MultipleFields(s:String) {
-        VH_TYPE("viewholder布局类型"),
+        ITEM_TYPE("viewholder或者item 布局类型"),
         CONTENT("布局填充的内容"),
         SPAN_SIZE("item占位大小"),
         DIVER("item的上下间隔"),
