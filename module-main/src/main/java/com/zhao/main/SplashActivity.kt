@@ -16,5 +16,6 @@ class SplashActivity: BaseSimpleActivity<SplashActivityBinding>() {
     }
 
     override fun initData() {
+        //哈哈哈
     }
 }
