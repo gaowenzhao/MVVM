@@ -1,5 +1,4 @@
 package com.zhao.home.rv.vh
-import androidx.viewpager.widget.ViewPager
 import android.view.ViewGroup
 import com.bigkoo.convenientbanner.ConvenientBanner
 import com.zhao.base.adapter.BaseViewHolder

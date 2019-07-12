@@ -65,7 +65,7 @@ android {
         enabled true
     }
 
-    productFlavors {
+   /* productFlavors {
         // 应用商店记录来源
         // 动态添加 string.xml 字段；
         // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
@@ -96,12 +96,12 @@ android {
                 variant.packageApplication.outputDirectory = new File("./apk")
             }
         }
-    }
+    }*/
 }
 
-static def buildTime() {
+/*static def buildTime() {
     return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
-}
+}*/
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -123,3 +123,7 @@ dependencies {
 repositories {
     mavenCentral()
 }
+// 依赖插件脚本
+apply from: 'tinker-support.gradle'
+// 多渠道使用walle示例（注：多渠道使用）
+apply from: 'multiple-channel.gradle'

@@ -20,13 +20,13 @@ interface RestApi {
      * 获取首页
      */
     @GET("/refactoring/investment/common/homeInfo")
-    fun getHomeInfo(@QueryMap map: Map<String, String>): Observable<BaseBean<HomeDataBean>>
+    fun getHomeInfo(@QueryMap map: Map<String, String>): Observable<BaseBean<HomeDataBean>>//HomeDataBean
 
     /**
      * 获取公告
      */
     @GET("/refactoring/investment/h5/affiche")
-    fun getAffiche(@QueryMap map: Map<String, String>): Observable<BaseBean<AfficheBean>>
+    fun getAffiche(@QueryMap map: Map<String, String>): Observable<BaseBean<AfficheBean>>//AfficheBean
 
     /**
      * 获取标

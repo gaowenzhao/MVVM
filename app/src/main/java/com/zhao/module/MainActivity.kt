@@ -1,5 +1,6 @@
 package com.zhao.module
 
+import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.zhao.base.inf.BaseSimpleActivity
@@ -15,5 +16,6 @@ class MainActivity : BaseSimpleActivity<MainActivityBinding>() {
     }
 
     override fun initData() {
+      Toast.makeText(this,"补丁包测试", Toast.LENGTH_SHORT).show()
     }
 }

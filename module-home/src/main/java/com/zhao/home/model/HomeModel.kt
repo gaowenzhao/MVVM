@@ -3,9 +3,11 @@ package com.zhao.home.model
 import androidx.databinding.ObservableArrayList
 import android.util.Log
 import android.util.SparseArray
+import androidx.databinding.BaseObservable
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
 import com.zhao.base.http.Client
+import com.zhao.base.http.bean.BaseBean
 import com.zhao.base.model.BaseModel
 import com.zhao.base.rx.SimplaObserver
 import com.zhao.home.bean.AfficheBean
@@ -13,6 +15,10 @@ import com.zhao.home.bean.BidBean
 import com.zhao.home.bean.HomeDataBean
 import com.zhao.home.http.Client.api
 import io.reactivex.Observable
+import io.reactivex.Observer
+import io.reactivex.disposables.Disposable
+import io.reactivex.internal.util.HalfSerializer.onNext
+import java.util.function.Consumer
 
 class HomeModel : BaseModel(){
     private val ANDROID = "3"
@@ -20,7 +26,7 @@ class HomeModel : BaseModel(){
         return sub(Client.api.getBannerList(), obs)
     }
 
-    fun getHomeInfo(obs: BaseObs<HomeDataBean>): BaseObs<HomeDataBean> {
+   fun getHomeInfo(obs: BaseObs<HomeDataBean>): BaseObs<HomeDataBean> {
         return sub(api.getHomeInfo(mapOf("platform" to ANDROID)), obs)
     }
     fun getAffiche(obs: BaseObs<AfficheBean>): BaseObs<AfficheBean> {
@@ -32,6 +38,12 @@ class HomeModel : BaseModel(){
 
     fun getBottomText(obs: BaseObs<String>): BaseObs<String> {
         return sub(api.getBottomText(mapOf("platform" to ANDROID)), obs)
+    }
+
+    fun mergRequest()/*: Observable<BaseBean<out BaseObservable>>?*/ {
+        val homeInfo = api.getHomeInfo(mapOf("platform" to ANDROID))
+        val affiche = api.getAffiche(mapOf("platform" to ANDROID))
+         Observable.merge(homeInfo, affiche)
     }
 
    fun convertData(multiData: SparseArray<Any>, obs: SimplaObserver<ObservableArrayList<MultiItemEntity>>){

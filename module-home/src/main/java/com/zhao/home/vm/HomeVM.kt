@@ -1,7 +1,7 @@
 package com.zhao.home.vm
 
-import androidx.databinding.ObservableArrayList
 import android.util.SparseArray
+import androidx.databinding.ObservableArrayList
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
 import com.zhao.base.inf.BaseVM
@@ -19,7 +19,7 @@ class HomeVM : BaseVM() {
         getHomeInfo()
     }
    private fun getHomeInfo() {
-        mod.getHomeInfo(object : BaseObs<HomeDataBean>() {
+      mod.getHomeInfo(object : BaseObs<HomeDataBean>() {
             override fun onSuccess(data: HomeDataBean?) {
                 multiData.put(0,data)
                 getAffiche()
