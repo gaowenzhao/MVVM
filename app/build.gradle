@@ -64,47 +64,16 @@ android {
     dataBinding {
         enabled true
     }
-
-   /* productFlavors {
-        // 应用商店记录来源
-        // 动态添加 string.xml 字段；
-        // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
-        "pingtai" {
-            buildConfigField("String", "ALIAS", '"app平台"')
-            resValue("string", "APP_NAME", "组件化应用")
-        }     // app平台
-        productFlavors.all { flavor ->
-            flavor.manifestPlaceholders = [CHANNEL_NAME: name]
-        }
-    }
-
-    // 这里修改apk打包时的名字
-    android.applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            def appName = "组件化应用"
-            def buildName
-            def channelName
-            if (!variant.buildType.isDebuggable()) {
-                // 这里修改apk文件名
-                // 输出apk名称为:组件化应用_20190604_pingtai_v3.0.4_app平台.apk
-                variant.productFlavors.each { product ->
-                    buildName = product.name
-                    appName = product.resValues.get("APP_NAME").value
-                    channelName = product.buildConfigFields.get("ALIAS").value.replaceAll("\"", "")
-                }
-                outputFileName = "${appName}_${buildTime()}_${buildName}_v${variant.versionName}_${channelName}.apk"
-                variant.packageApplication.outputDirectory = new File("./apk")
-            }
-        }
-    }*/
 }
 
-/*static def buildTime() {
-    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
-}*/
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //热更新Tinker
+    //若使用annotation需要单独引用,对于tinker的其他库都无需再引用
+    annotationProcessor("com.tinkerpatch.tinker:tinker-android-anno:1.9.13")
+    compileOnly("com.tinkerpatch.tinker:tinker-android-anno:1.9.13")
+    implementation("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.2.13")
     //宿主项目中判断组件是否需要独立运行
     if (isBuildModule.toBoolean()) {
         //组件独立运行时，宿主项目直接依赖基础库，避免编译错误
@@ -124,6 +93,6 @@ repositories {
     mavenCentral()
 }
 // 依赖插件脚本
-apply from: 'tinker-support.gradle'
+apply from: 'tinkerpatch.gradle'
 // 多渠道使用walle示例（注：多渠道使用）
 apply from: 'multiple-channel.gradle'

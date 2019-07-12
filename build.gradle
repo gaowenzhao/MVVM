@@ -6,8 +6,8 @@ buildscript {
     ext.compileSdk = 28
     ext.targetSdk = 28
     ext.minSdk = 19
-    ext.verName = '3.0.4'
-    ext.verCode = 304
+    ext.verName = '1.0.0'
+    ext.verCode = 100
     ext.navigationVersion = "2.0.0"
     //isBuildModule 为 true 时可以使每个组件独立运行, false 则可以将所有组件集成到宿主 App 中
     ext.isBuildModule = false
@@ -21,8 +21,11 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
         classpath 'com.alibaba:arouter-register:1.0.2'
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
-        classpath "com.tencent.bugly:tinker-support:1.1.5"
+        //多渠道打包
         classpath 'com.meituan.android.walle:plugin:1.1.6'
+        // TinkerPatch 插件
+        classpath "com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:1.2.13"
+
     }
 }
 
