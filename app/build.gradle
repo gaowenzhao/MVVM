@@ -10,13 +10,12 @@ android {
         versionCode verCode
         versionName verName
         flavorDimensions "versionCode"
-    }
-    android {
-        compileOptions {
-            sourceCompatibility 1.8
-            targetCompatibility 1.8
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
+
     signingConfigs {
         signing {
             //签名秘钥库文件的存放的位置，这里使用的是相对路径
@@ -49,6 +48,7 @@ android {
                 abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
                 // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
             }
+            debuggable true
             // 混淆是否开启
             minifyEnabled true
             // Zipalign优化
@@ -65,38 +65,6 @@ android {
         enabled true
     }
 
-   /* productFlavors {
-        // 应用商店记录来源
-        // 动态添加 string.xml 字段；
-        // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
-        "pingtai" {
-            buildConfigField("String", "ALIAS", '"app平台"')
-            resValue("string", "APP_NAME", "组件化应用")
-        }     // app平台
-        productFlavors.all { flavor ->
-            flavor.manifestPlaceholders = [CHANNEL_NAME: name]
-        }
-    }
-
-    // 这里修改apk打包时的名字
-    android.applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            def appName = "组件化应用"
-            def buildName
-            def channelName
-            if (!variant.buildType.isDebuggable()) {
-                // 这里修改apk文件名
-                // 输出apk名称为:组件化应用_20190604_pingtai_v3.0.4_app平台.apk
-                variant.productFlavors.each { product ->
-                    buildName = product.name
-                    appName = product.resValues.get("APP_NAME").value
-                    channelName = product.buildConfigFields.get("ALIAS").value.replaceAll("\"", "")
-                }
-                outputFileName = "${appName}_${buildTime()}_${buildName}_v${variant.versionName}_${channelName}.apk"
-                variant.packageApplication.outputDirectory = new File("./apk")
-            }
-        }
-    }*/
 }
 
 /*static def buildTime() {

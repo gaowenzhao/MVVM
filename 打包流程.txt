@@ -1,0 +1,15 @@
+打包流程：
+thinker-support.gradle文件的修改
+ 打基准包的 tinkerId = "base-版本"
+ 打补丁包的 tinkerId = "path-版本"
+
+ walle多渠道打包命令行
+ gradlew clean assembleReleaseChannels  （打包后生成的渠道apk位于build/outputs/channels）
+
+ 保留上线的基准包（文件位于 build/bakApk/.....的release版本包）
+
+ 打补丁的注意事项：
+ 修改基准包的目录文件夹名字为：app-base，即 thinker-support.gradle的baseApkDir变量指定的目录名（目前初定为app-base），
+ 因为打补丁要找thinker-support.gradle定义的基准包，用基准包来跟修改好bug的新包来生成补丁包的
+
+ 注意：全量设备/开发设备的代码配置要小心

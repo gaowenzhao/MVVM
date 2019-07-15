@@ -29,6 +29,8 @@ open class BaseApplication :Application(){
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         MultiDex.install(this)
+        // 安装tinker
+        Beta.installTinker()
     }
     private fun initARouter() {
         if (BuildConfig.DEBUG) {
@@ -38,9 +40,11 @@ open class BaseApplication :Application(){
         ARouter.init(this)
     }
     private fun initBugly(){
-        val channel = WalleChannelReader.getChannel(getApplication())
-        Bugly.setAppChannel(getApplication(), channel)
+        WalleChannelReader.getChannel(getApplication())?.let {
+            Bugly.setAppChannel(getApplication(), it)
+        }
+        Bugly.setIsDevelopmentDevice(this,true)//设置为开发设备
         // 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId
-        Bugly.init(this, "0e64a4721e", BuildConfig.DEBUG) //合众的
+        Bugly.init(this, "e79d203d8a", BuildConfig.DEBUG) //合众的
     }
  }

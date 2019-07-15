@@ -16,6 +16,6 @@ class MainActivity : BaseSimpleActivity<MainActivityBinding>() {
     }
 
     override fun initData() {
-      Toast.makeText(this,"补丁包测试", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"测试哈哈哈", Toast.LENGTH_SHORT).show()
     }
 }

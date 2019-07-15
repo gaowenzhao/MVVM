@@ -35,8 +35,8 @@ tinkerSupport {
 
     // 构建基准包和补丁包都要指定不同的tinkerId，并且必须保证唯一性
 //   基准包 tinkerId = "base-1.0.0"  补丁 tinkerId = "path-1.0.0"
-//    tinkerId = "base-1.0.0"
-      tinkerId = "path-1.0.0"
+//    tinkerId = "base-${verName}"
+      tinkerId = "path-${verName}"
 
 
     // 构建多渠道补丁时使用
