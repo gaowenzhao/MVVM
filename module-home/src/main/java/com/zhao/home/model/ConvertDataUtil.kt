@@ -16,9 +16,7 @@ import com.zhao.home.bean.HomeDataBean
  */
 object ConvertDataUtil {
     const val MAXSPAN_SIZE = 24
-    fun convertData(
-        multiData:SparseArray<Any>
-        /*homeDataBean: HomeDataBean, afficheBean: AfficheBean, bidList: List<BidBean>,bottomText:String*/): ObservableArrayList<MultiItemEntity> {
+     fun convertData(multiData:SparseArray<Any>): ObservableArrayList<MultiItemEntity> {
         var datas: ObservableArrayList<MultiItemEntity> = ObservableArrayList()
         //banner
         val homeDataBean = multiData[0] as HomeDataBean
@@ -134,7 +132,7 @@ object ConvertDataUtil {
         datas.add(entity)
     }
 
-    private fun addItem(vhType: Any, content: Any, spanSize: Int,datas: ArrayList<MultiItemEntity>,index:Int=0) {
+    fun  addItem(vhType: Any, content: Any, spanSize: Int,datas: ArrayList<MultiItemEntity>,index:Int=0) {
         datas.add(MultiItemEntity.builder()
                 .setField(MultipleFields.ITEM_TYPE, vhType)
                 .setField(MultipleFields.CONTENT, content)

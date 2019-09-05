@@ -7,6 +7,7 @@ import com.zhao.home.bean.BidBean
 import com.zhao.home.bean.HomeDataBean
 import io.reactivex.Observable
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.QueryMap
 
 interface RestApi {
@@ -37,9 +38,12 @@ interface RestApi {
     /**
      * 获取首页底部文案
      */
+    @Headers("Domain-Name: https")
     @GET("/refactoring/investment/app/common/text")
     fun getBottomText(@QueryMap map: Map<String, String>): Observable<BaseBean<String>>
 
     @GET("/refactoring/investment/common/getHomePopupInformation")//首页弹窗
     fun getHomePopupInformation(): Observable<BaseBean<BeanGetHomePopupInformation>>
+
+
 }

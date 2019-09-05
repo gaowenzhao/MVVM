@@ -3,11 +3,11 @@ package com.zhao.base.http
 import android.text.TextUtils
 import com.google.gson.GsonBuilder
 import com.zhao.base.app.BaseApplication
+import com.zhao.base.http.interceptor.HttpInterceptor
+import com.zhao.base.http.interceptor.NetworkInterceptor
 import com.zhao.base.utils.HeaderUtils
-import com.zhao.base.utils.NetUtils
 import com.zhao.base.utils.SPUtil
 import okhttp3.*
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -51,53 +51,15 @@ object Httper {
   }
 
   private fun initOkHttpClient() {
-    val interceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { message -> /*Loger.show("=== $message", tag = "OkHttp")*/ }).setLevel(HttpLoggingInterceptor.Level.BODY)
-
-    val mRewriteCacheControlInterceptor = Interceptor { chain ->
-      var request = chain.request()
-
-      val updateRequest: Request
-      if (NetUtils.isNetworkAvailable()) {
-        // 有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
-        val cacheControl = request.cacheControl().toString()
-        updateRequest = request.newBuilder()
-          .header("Cache-Control", cacheControl)
-          .header("Content-Type", "application/json; charset=UTF-8")
-//          .header("imei", HeaderUtils.getIMEI())//需要动态申请权限
-          .header("client", HeaderUtils.getPlatform())
-          .header("version", HeaderUtils.getVersionName())
-          .header("id", token)
-          .header("token", token)
-          .build()
-      }
-      else {
-        request = request.newBuilder()
-          .cacheControl(CacheControl.FORCE_CACHE)
-          .build()
-//        Loger.show("no network", tag = mTag)
-
-        updateRequest = request.newBuilder()
-          .header("Cache-Control", "public, only-if-cached, max-stale=$CACHE_STALE_SEC")
-          .header("Content-Type", "application/json; charset=UTF-8")
-          .header("imei", HeaderUtils.getIMEI())
-          .header("client", HeaderUtils.getPlatform())
-          .header("version", HeaderUtils.getVersionName())
-          .header("id", token)
-          .header("token", token)
-          .build()
-      }
-      chain.proceed(updateRequest)
-    }
     val cache = Cache(File(BaseApplication.appContext.cacheDir, "HttpCache"),
       (cacheSize).toLong())
-    mOkHttpClient = OkHttpClient.Builder()
+        mOkHttpClient = OkHttpClient.Builder()
       .cache(cache)
       .connectTimeout((TIMEOUT).toLong(), TimeUnit.SECONDS)
       .readTimeout((TIMEOUT).toLong(), TimeUnit.SECONDS)
       .writeTimeout((TIMEOUT).toLong(), TimeUnit.SECONDS)
-      //.addInterceptor(mRewriteCacheControlInterceptor)
-      .addNetworkInterceptor(mRewriteCacheControlInterceptor)
-      .addInterceptor(interceptor)
+      .addNetworkInterceptor(NetworkInterceptor())
+//      .addInterceptor(HttpInterceptor())
       .build()
   }
 
@@ -105,12 +67,10 @@ object Httper {
   private fun initRetrofit() {
 
     retrofit = Retrofit.Builder()
-      // 设置url头  ：http:www.shianyunduan.com   BuildConfig.API_HOST_URL
       .baseUrl(CommonUrl.URL)
       //设置返回类型为RXJava，或者回调
       .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
       //设置返回数据类型
-//                .addConverterFactory(NullOnEmptyConverterFactory())
       .addConverterFactory(GsonConverterFactory.create(gson))
       //设置网络请求，默认httpclient
       .client(mOkHttpClient)
@@ -128,7 +88,6 @@ object Httper {
 
   fun clearToken() {
     updataToken("")
-//    (BaseApplication.app as BaseApplication).clearUserInfo()
   }
 
   fun isLogin(): Boolean {//已登录

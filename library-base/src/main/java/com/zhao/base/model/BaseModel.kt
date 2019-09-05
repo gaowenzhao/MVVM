@@ -13,10 +13,6 @@ import okhttp3.RequestBody
 abstract class BaseModel {
     open var mediaTypeParse = "application/json;charset=UTF-8"
 
-    fun getCache(): String {
-        return if (NetUtils.isNetworkAvailable()) Httper.CACHE_CONTROL_AGE else Httper.CACHE_CONTROL_CACHE
-    }
-
     fun <T : Any> sub(t: Observable<T>): Observable<T> {
         return t.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
     }
