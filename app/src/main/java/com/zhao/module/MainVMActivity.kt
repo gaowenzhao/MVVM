@@ -4,7 +4,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.zhao.base.inf.BaseSimpleActivity
+import com.zhao.base.inf.BaseSimpleVMActivity
 import com.zhao.module.databinding.MainActivityBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 
 //import kotlinx.coroutines.*
 
-class MainActivity : BaseSimpleActivity<MainActivityBinding>() {
-    private val TAG = MainActivity::class.java.simpleName
+class MainVMActivity : BaseSimpleVMActivity<MainActivityBinding>() {
+    private val TAG = MainVMActivity::class.java.simpleName
     override var layoutId: Int = R.layout.main_activity
     override fun initView() {
         val host: NavHostFragment =

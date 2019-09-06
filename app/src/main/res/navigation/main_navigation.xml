@@ -6,12 +6,12 @@
 
     <fragment
               android:id="@+id/homeFragment"
-              android:name="com.zhao.home.HomeFragment"
+              android:name="com.zhao.home.HomeVMFragment"
               android:label="HomeFragment"/>
     <fragment android:id="@+id/msgFragment"
-              android:name="com.zhao.msg.MsgFragment"
+              android:name="com.zhao.msg.MsgVMFragment"
               android:label="MsgFragment"/>
     <fragment android:id="@+id/userFragment"
-              android:name="com.zhao.user.UserFragment"
+              android:name="com.zhao.user.UserVMFragment"
               android:label="UserFragment"/>
 </navigation>

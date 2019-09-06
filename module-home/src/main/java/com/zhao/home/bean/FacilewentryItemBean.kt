@@ -3,7 +3,7 @@ package com.zhao.home.bean
 import androidx.databinding.BaseObservable
 
 
-class FacilewentryItemBean: BaseObservable() {
+class FacilewentryItemBean {
     var activeColor:String? = null
     var activeImage:String? = null
     var defaultColor:String? = null

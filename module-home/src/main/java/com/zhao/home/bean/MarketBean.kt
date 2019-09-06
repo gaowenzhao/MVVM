@@ -6,7 +6,7 @@ import androidx.databinding.BaseObservable
 /**
  * gaowenzhao
  */
-class MarketBean : BaseObservable(){
+class MarketBean{
     lateinit var firstTitle:String
     lateinit var secondTitle:String
     lateinit var buttons:List<ButtonBean>

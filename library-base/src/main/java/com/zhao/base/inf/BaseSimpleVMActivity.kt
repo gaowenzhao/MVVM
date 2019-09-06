@@ -4,4 +4,4 @@ import androidx.lifecycle.ViewModel
 import androidx.databinding.ViewDataBinding
 
 
-abstract class BaseSimpleActivity<V : ViewDataBinding> : BaseActivity<V, ViewModel>()
+abstract class BaseSimpleVMActivity<V : ViewDataBinding> : BaseVMActivity<V, ViewModel>()

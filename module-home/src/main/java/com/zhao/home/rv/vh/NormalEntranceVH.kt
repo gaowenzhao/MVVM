@@ -10,5 +10,4 @@ class NormalEntranceVH(vg: ViewGroup) :BaseViewHolder<HomeItemEntranceBinding,En
     override fun bindData() {
         ui.bean = mData
     }
-
 }

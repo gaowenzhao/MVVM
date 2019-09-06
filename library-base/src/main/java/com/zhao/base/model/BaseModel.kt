@@ -1,4 +1,4 @@
-package com.zhao.base.model;
+package com.zhao.base.model
 
 import com.google.gson.Gson
 import com.zhao.base.http.Httper

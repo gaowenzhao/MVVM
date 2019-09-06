@@ -15,7 +15,7 @@ import java.lang.reflect.ParameterizedType
 /**
  * BaseActivity父类
  */
-abstract class BaseActivity<V : ViewDataBinding, VM : ViewModel> : AppCompatActivity() {
+abstract class BaseVMActivity<V : ViewDataBinding, VM : ViewModel> : AppCompatActivity() {
     open var isEventbus = false
     open var darkMode: Boolean = false
     open var fitsSystemWindows = false

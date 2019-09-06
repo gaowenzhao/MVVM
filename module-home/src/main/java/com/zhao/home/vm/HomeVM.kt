@@ -2,6 +2,9 @@ package com.zhao.home.vm
 
 import android.util.SparseArray
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
+import androidx.databinding.ObservableLong
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
 import com.zhao.base.http.bean.BaseBean

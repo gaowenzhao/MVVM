@@ -17,6 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.zhao.base.debug.ContainerActivity"/>
+        <activity android:name="com.zhao.base.debug.ContainerVMActivity"/>
     </application>
 </manifest>

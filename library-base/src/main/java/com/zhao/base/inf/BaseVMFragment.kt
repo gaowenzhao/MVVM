@@ -19,7 +19,7 @@ import java.lang.reflect.ParameterizedType
 /**
  * Fragment父类
  */
-abstract class BaseFragment<V : ViewDataBinding, VM : BaseVM> : SimpleImmersionFragment() {
+abstract class BaseVMFragment<V : ViewDataBinding, VM : BaseVM> : SimpleImmersionFragment() {
     open var isEventbus = false
     var mRootView: View? = null
     lateinit var mContext: Context

@@ -3,7 +3,7 @@ package com.zhao.home.bean
 import androidx.databinding.BaseObservable
 import com.zhao.base.http.CommonUrl
 
-class EntranceBean : BaseObservable(){
+class EntranceBean {
     var isDone:Boolean = false
     var no:Int = 0
     var description:String?=null

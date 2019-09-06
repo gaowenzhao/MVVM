@@ -6,7 +6,7 @@ import androidx.databinding.BaseObservable
 /**
  * gaowenzhao
  */
-class PlatformadBean : BaseObservable(){
+class PlatformadBean {
     lateinit var firstTitle:String
     lateinit var secondTitle:String
     lateinit var image:String
