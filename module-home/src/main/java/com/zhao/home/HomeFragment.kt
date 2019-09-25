@@ -18,8 +18,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(),HomeVM.VMCallBa
         ui.refreshlayout.finishLoadMore()
         homeAdapter.datas.addAll(data)
     }
-
-
     override fun updateData(t: ObservableArrayList<MultiItemEntity>) {
         homeAdapter.setNewData(t)
         ui.refreshlayout.finishRefresh()
@@ -48,6 +46,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(),HomeVM.VMCallBa
      override fun initData(){
          vm.getAllData()
      }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        vm.vmCallBack = null
+    }
     companion object {
         val TAG = HomeFragment::class.java.simpleName
     }

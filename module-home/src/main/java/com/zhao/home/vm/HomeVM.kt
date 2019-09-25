@@ -15,7 +15,7 @@ import com.zhao.home.model.HomeModel
 
 class HomeVM : BaseVM() {
     private val mod = HomeModel()
-    lateinit var vmCallBack:VMCallBack
+    var vmCallBack:VMCallBack? = null
     private val multiData = SparseArray<Any>()
     fun getAllData() {
         getHomeInfo()
@@ -42,12 +42,12 @@ class HomeVM : BaseVM() {
         sub(mod.getBidList(object : BaseObs<ArrayList<BidBean>>() {
             override fun onSuccess(data: ArrayList<BidBean>?) {
                 if(loadmore){
-                    vmCallBack.loadMore(ConvertDataUtil.addMoreData(data!!))
+                    vmCallBack?.loadMore(ConvertDataUtil.addMoreData(data!!))
                 }else{
                     multiData.put(2,data)
                     mod.convertData(multiData,object :SimplaObserver<ObservableArrayList<MultiItemEntity>>(){
                         override fun onNext(t: ObservableArrayList<MultiItemEntity>) {
-                            vmCallBack.updateData(t)
+                            vmCallBack?.updateData(t)
                         }
                     })
                 }
@@ -61,7 +61,7 @@ class HomeVM : BaseVM() {
                 multiData.put(3,data)
                 mod.convertData(multiData,object :SimplaObserver<ObservableArrayList<MultiItemEntity>>(){
                     override fun onNext(t: ObservableArrayList<MultiItemEntity>) {
-                        vmCallBack.updateData(t)
+                        vmCallBack?.updateData(t)
                     }
                 })
             }
