@@ -10,7 +10,7 @@ import com.zhao.home.rv.vh.BannerVH
 import com.zhao.home.rv.vh.BidVH
 import com.zhao.home.rv.vh.NormalEntranceVH
 
-class HomeAdapter(datas: ObservableArrayList<MultiItemEntity>) : BaseMultiItemAdapter(datas) {
+class HomeAdapter(datas: ObservableArrayList<MultiItemEntity> = ObservableArrayList()) : BaseMultiItemAdapter(datas) {
      override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
          return when (viewType) {
              VHType.BANNER.code -> {

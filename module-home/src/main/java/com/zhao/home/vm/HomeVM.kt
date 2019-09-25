@@ -2,6 +2,7 @@ package com.zhao.home.vm
 
 import android.util.SparseArray
 import androidx.databinding.ObservableArrayList
+import com.hzcfapp.qmwallet.widget.recycler.MultipleFields
 import com.zhao.base.adapter.multityppe.MultiItemEntity
 import com.zhao.base.http.BaseObs
 import com.zhao.base.inf.BaseVM
@@ -9,11 +10,12 @@ import com.zhao.base.rx.SimplaObserver
 import com.zhao.home.bean.AfficheBean
 import com.zhao.home.bean.BidBean
 import com.zhao.home.bean.HomeDataBean
+import com.zhao.home.model.ConvertDataUtil
 import com.zhao.home.model.HomeModel
 
 class HomeVM : BaseVM() {
     private val mod = HomeModel()
-    var homeDatas: ObservableArrayList<MultiItemEntity> = ObservableArrayList()
+    lateinit var vmCallBack:VMCallBack
     private val multiData = SparseArray<Any>()
     fun getAllData() {
         getHomeInfo()
@@ -36,15 +38,19 @@ class HomeVM : BaseVM() {
         }))
     }
 
-    private fun getBidList() {
+     fun getBidList(loadmore:Boolean = false) {
         sub(mod.getBidList(object : BaseObs<ArrayList<BidBean>>() {
             override fun onSuccess(data: ArrayList<BidBean>?) {
-                data?.addAll(data)
-                data?.addAll(data)
-                data?.addAll(data)
-                data?.addAll(data)
-                multiData.put(2,data)
-                getBottomText()
+                if(loadmore){
+                    vmCallBack.loadMore(ConvertDataUtil.addMoreData(data!!))
+                }else{
+                    multiData.put(2,data)
+                    mod.convertData(multiData,object :SimplaObserver<ObservableArrayList<MultiItemEntity>>(){
+                        override fun onNext(t: ObservableArrayList<MultiItemEntity>) {
+                            vmCallBack.updateData(t)
+                        }
+                    })
+                }
             }
         }))
     }
@@ -55,14 +61,14 @@ class HomeVM : BaseVM() {
                 multiData.put(3,data)
                 mod.convertData(multiData,object :SimplaObserver<ObservableArrayList<MultiItemEntity>>(){
                     override fun onNext(t: ObservableArrayList<MultiItemEntity>) {
-                        updateData(t)
+                        vmCallBack.updateData(t)
                     }
                 })
             }
         }))
     }
-    private fun updateData(t: ObservableArrayList<MultiItemEntity>){
-        homeDatas.clear()
-        homeDatas.addAll(t)
+    interface VMCallBack{
+        fun updateData(t: ObservableArrayList<MultiItemEntity>)
+        fun loadMore(data: ObservableArrayList<MultiItemEntity>)
     }
 }

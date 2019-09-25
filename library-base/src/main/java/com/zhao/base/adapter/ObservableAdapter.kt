@@ -4,11 +4,11 @@ import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.RecyclerView
 
 
-abstract class ObservableAdapter<E>(datas: ObservableArrayList<E>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+abstract class ObservableAdapter<E>(var datas: ObservableArrayList<E>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     init {
-        datas.addOnListChangedCallback(createListChangedListener())
+        addOnListChangedCallback()
     }
-    private fun createListChangedListener():ListChangedListener<E>{
-       return ListChangedListener(this)
+    fun addOnListChangedCallback(){
+        datas.addOnListChangedCallback(ListChangedListener<E>(this))
     }
 }

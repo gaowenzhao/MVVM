@@ -1,95 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
-     <variable name="bean" type="com.zhao.home.bean.BidBean"/>
-        <variable name="clicker" type="com.zhao.base.inf.Clicker"/>
+
+        <variable
+            name="bean"
+            type="com.zhao.home.bean.BidBean" />
+
+        <variable
+            name="clicker"
+            type="com.zhao.base.inf.Clicker" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="26dp"
-            android:paddingBottom="26dp"
-            android:background="@drawable/shape_bg_biditem_gray">
-        <TextView
-                android:id="@+id/tv_bidname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/lL_label"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="@{bean.name}"
-                android:textSize="14dp"
-                android:textColor="@color/c_333"
-                app:layout_constraintVertical_chainStyle="packed"
-        />
-        <LinearLayout
-                android:id="@+id/lL_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/tv_bidname"
-                app:layout_constraintTop_toTopOf="@+id/tv_bidname"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_bidname"
-                app:layout_constraintRight_toRightOf="parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg_biditem_gray"
+        android:paddingTop="26dp"
+        android:paddingBottom="26dp">
 
         <TextView
-                android:id="@+id/tv_tag_rate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:text="@{bean.aprText}"
-                android:textColor="@color/c_999999"
-                android:textSize="12dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_bidname"/>
+            android:id="@+id/tv_bidname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{bean.name}"
+            android:textColor="@color/c_333"
+            android:textSize="14dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/lL_label"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <LinearLayout
+            android:id="@+id/lL_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_bidname"
+            app:layout_constraintLeft_toRightOf="@+id/tv_bidname"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_bidname" />
+
         <TextView
-                android:id="@+id/tv_rate"
-                app:layout_constraintTop_toBottomOf="@+id/tv_tag_rate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="7dp"
-                android:textColor="@color/c_ff7800"
-                android:text='@{bean.apr+"%+"+bean.extraApr+"%"}'
-                android:gravity="bottom"
-                android:textSize="@dimen/sp_15"
-        />
+            android:id="@+id/tv_tag_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:text="@{bean.aprText}"
+            android:textColor="@color/c_999999"
+            android:textSize="12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bidname" />
+
         <TextView
-                android:id="@+id/btn_loan"
-                app:layout_constraintTop_toBottomOf="@+id/tv_rate"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/dp_35"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="14dp"
-                android:layout_marginLeft="@dimen/dp_15"
-                android:layout_marginRight="@dimen/dp_15"
-                android:textColor="@color/white"
-                android:textSize="@dimen/dp_15"
-                android:background="@drawable/btn_shape_gradient"
-                android:gravity="center"
-                android:text="@{bean.buttonText}"
-                android:onClick="@{clicker}"
-        />
+            android:id="@+id/tv_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="bottom"
+            android:text='@{bean.apr+"%+"+bean.extraApr+"%"}'
+            android:textColor="@color/c_ff7800"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tag_rate" />
+
         <TextView
-                android:id="@+id/tv_bid_bottom_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_loan"
-                android:textColor="@color/c_ff7800"
-                android:layout_marginTop="@dimen/dp_8"
-                android:textSize="@dimen/dp_10"
-                android:text="@{bean.bottomText}"
-                android:gravity="center"
-                android:drawablePadding="@dimen/dp_1"
-                android:drawableLeft="@mipmap/ic_home_bid_bottom_text"
-        />
+            android:id="@+id/btn_loan"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="@dimen/dp_15"
+            android:background="@drawable/btn_shape_gradient"
+            android:gravity="center"
+            android:onClick="@{clicker}"
+            android:text="@{bean.buttonText}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_15"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rate" />
+
+        <TextView
+            android:id="@+id/tv_bid_bottom_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:drawableLeft="@mipmap/ic_home_bid_bottom_text"
+            android:drawablePadding="@dimen/dp_1"
+            android:gravity="center"
+            android:text="@{bean.bottomText}"
+            android:textColor="@color/c_ff7800"
+            android:textSize="@dimen/dp_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_loan" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

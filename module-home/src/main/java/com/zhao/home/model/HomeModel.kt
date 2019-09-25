@@ -35,18 +35,10 @@ class HomeModel : BaseModel(){
     fun getBidList(obs: BaseObs<ArrayList<BidBean>>): BaseObs<ArrayList<BidBean>> {
         return sub(api.getbidList(mapOf("platform" to ANDROID)), obs)
     }
-
     fun getBottomText(obs: BaseObs<String>): BaseObs<String> {
         return sub(api.getBottomText(mapOf("platform" to ANDROID)), obs)
     }
-
-    fun mergRequest()/*: Observable<BaseBean<out BaseObservable>>?*/ {
-        val homeInfo = api.getHomeInfo(mapOf("platform" to ANDROID))
-        val affiche = api.getAffiche(mapOf("platform" to ANDROID))
-         Observable.merge(homeInfo, affiche)
-    }
-
-   fun convertData(multiData: SparseArray<Any>, obs: SimplaObserver<ObservableArrayList<MultiItemEntity>>){
+    fun convertData(multiData: SparseArray<Any>, obs: SimplaObserver<ObservableArrayList<MultiItemEntity>>){
          sub(Observable.create { emitter ->
             Log.i("HomeModel", " 线程：+ ${Thread.currentThread().name}")
             val datas = ConvertDataUtil.convertData(multiData)

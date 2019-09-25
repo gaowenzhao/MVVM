@@ -13,7 +13,8 @@ import com.zhao.home.databinding.HomeItemBidBinding
 
 class BidVH(vg: ViewGroup) : BaseViewHolder<HomeItemBidBinding,BidBean>(R.layout.home_item_bid,vg),Clicker{
     override fun onClick(v: View?) {
-      Toast.makeText(BaseApplication.appContext,"test",Toast.LENGTH_SHORT).show()
+       Toast.makeText(BaseApplication.appContext,"test",Toast.LENGTH_SHORT).show()
+        mData.buttonText = "高溫找"
     }
 
     override fun bindData() {

@@ -1,7 +1,9 @@
 package com.zhao.base.http
 
+import android.os.Build
 import android.text.TextUtils
 import com.google.gson.GsonBuilder
+import com.zhao.base.BuildConfig
 import com.zhao.base.app.BaseApplication
 import com.zhao.base.utils.HeaderUtils
 import com.zhao.base.utils.NetUtils
@@ -12,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import java.net.Proxy
 import java.util.concurrent.TimeUnit
 
 object Httper {
@@ -90,8 +93,8 @@ object Httper {
     }
     val cache = Cache(File(BaseApplication.appContext.cacheDir, "HttpCache"),
       (cacheSize).toLong())
-    mOkHttpClient = OkHttpClient.Builder()
-      .cache(cache)
+    val builder = if(BuildConfig.DEBUG) OkHttpClient.Builder().proxy(Proxy.NO_PROXY) else OkHttpClient.Builder()
+    mOkHttpClient = builder.cache(cache)
       .connectTimeout((TIMEOUT).toLong(), TimeUnit.SECONDS)
       .readTimeout((TIMEOUT).toLong(), TimeUnit.SECONDS)
       .writeTimeout((TIMEOUT).toLong(), TimeUnit.SECONDS)
