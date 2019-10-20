@@ -36,5 +36,4 @@ open class ListChangedListener<E>(val adapter: RecyclerView.Adapter<RecyclerView
         adapter.notifyItemRangeChanged(positionStart, itemCount)
         Log.i("ListChangedListener","onItemRangeChanged")
     }
-    open fun finishNotify(){}
 }

@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.zhao.base.inf.BaseSimpleActivity
+import com.zhao.base.utils.lastChar
 import com.zhao.module.databinding.MainActivityBinding
 
 class MainActivity : BaseSimpleActivity<MainActivityBinding>() {
@@ -16,6 +17,7 @@ class MainActivity : BaseSimpleActivity<MainActivityBinding>() {
     }
 
     override fun initData() {
-      Toast.makeText(this,"新的测试包下发", Toast.LENGTH_SHORT).show()
+        var char =  "test".lastChar()
+        Toast.makeText(this,"新的测试包下发", Toast.LENGTH_SHORT).show()
     }
 }

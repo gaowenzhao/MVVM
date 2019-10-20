@@ -8,7 +8,6 @@ import com.zhao.base.inf.BaseVM
 import com.zhao.base.utils.router.RouterUrl
 import com.zhao.msg.databinding.FragmentMsgBinding
 
-@Route(path = RouterUrl.Msg.TabMsg)
 class MsgFragment : BaseFragment<FragmentMsgBinding, BaseVM>(){
     override var darkMode: Boolean = true
     override var fitsSystemWindows: Boolean = true

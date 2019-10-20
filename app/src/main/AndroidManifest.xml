@@ -19,11 +19,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity android:name="com.zhao.user.login.LoginActivity"/>
         <!--沉浸式ImmersionBar适配-->
         <!--关于全面屏-->
         <meta-data
                 android:name="android.max_aspect"
                 android:value="2.4" />
+
+
         <!--适配华为（huawei）刘海屏-->
         <meta-data
                 android:name="android.notch_support"

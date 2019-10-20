@@ -23,7 +23,7 @@ import java.util.function.Consumer
 class HomeModel : BaseModel(){
     private val ANDROID = "3"
     fun getBanner(obs: BaseObs<Any>): BaseObs<Any> {
-        return sub(Client.api.getBannerList(), obs)
+        return sub(api.getBannerList(), obs)
     }
 
    fun getHomeInfo(obs: BaseObs<HomeDataBean>): BaseObs<HomeDataBean> {

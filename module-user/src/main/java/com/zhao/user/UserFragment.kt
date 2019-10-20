@@ -8,7 +8,6 @@ import com.zhao.base.inf.BaseVM
 import com.zhao.base.utils.router.RouterUrl
 import com.zhao.user.databinding.FragmentUserBinding
 
-@Route(path = RouterUrl.User.TabUser)
 class UserFragment : BaseFragment<FragmentUserBinding, BaseVM>(){
     override var darkMode: Boolean = true
     override var layoutId: Int = R.layout.fragment_user

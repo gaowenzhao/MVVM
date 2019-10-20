@@ -14,4 +14,7 @@ dependencies {
     api project(':library-base')
     //组件中依赖阿里路由编译框架
     kapt 'com.alibaba:arouter-compiler:1.2.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
