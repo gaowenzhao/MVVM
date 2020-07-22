@@ -55,9 +55,7 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseVM> : SimpleImmersionF
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val childView = (activity?.findViewById(android.R.id.content) as ViewGroup).getChildAt(0)
-        if (view != null) {
-            ViewCompat.requestApplyInsets(childView)
-        }
+        ViewCompat.requestApplyInsets(childView)
         if (null == mRootView) {
             mRootView = view
         }
