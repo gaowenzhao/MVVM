@@ -1,1 +1,2 @@
+include ':liveDataBus'
 include ':app', ':library-base', ':library-res', ':module-home', ':module-user', ':module-msg'

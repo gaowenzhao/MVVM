@@ -10,6 +10,7 @@ import com.zhao.user.databinding.FragmentUserBinding
 
 class UserFragment : BaseFragment<FragmentUserBinding, BaseVM>(){
     override var darkMode: Boolean = true
+    override var fitsSystemWindows: Boolean = true
     override var layoutId: Int = R.layout.fragment_user
     override fun initData() {
     }
