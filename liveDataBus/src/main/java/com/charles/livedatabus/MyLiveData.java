@@ -1,5 +1,7 @@
 package com.charles.livedatabus;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
@@ -9,6 +11,8 @@ import androidx.lifecycle.Observer;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 public class MyLiveData<T> extends MutableLiveData<T> {
     @Override
@@ -39,5 +43,6 @@ public class MyLiveData<T> extends MutableLiveData<T> {
         mVersion.setAccessible(true);
         Object mVersionValue = mVersion.get(this);
         mLastVersion.set(objectWrapper,mVersionValue);
+        Log.d(TAG, "hook: ");
     }
 }
