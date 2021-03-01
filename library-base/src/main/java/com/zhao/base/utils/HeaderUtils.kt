@@ -34,7 +34,7 @@ class HeaderUtils {
         /***获取版本号*/
         @JvmStatic
         fun getVersionName(): String {
-            return BuildConfig.VERSION_NAME //待修改
+            return "1"
         }
 
         @JvmStatic

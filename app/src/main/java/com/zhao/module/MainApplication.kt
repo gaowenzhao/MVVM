@@ -14,7 +14,7 @@ class MainApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        iniTinkerPath()
+//        iniTinkerPath()
     }
     private fun iniTinkerPath(){
         // 我们可以从这里获得Tinker加载过程的信息

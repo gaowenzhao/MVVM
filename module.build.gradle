@@ -1,4 +1,4 @@
-if (isBuildModule.toBoolean()) {
+if (rootProject.ext.isBuildModule.toBoolean()) {
     //作为独立App应用运行
     apply plugin: 'com.android.application'
 } else {
@@ -9,12 +9,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 android {
-    compileSdkVersion compileSdk
+    compileSdkVersion rootProject.ext.compileSdk
     defaultConfig {
-        minSdkVersion minSdk
-        targetSdkVersion targetSdk
-        versionCode verCode
-        versionName verName
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.verCode
+        versionName rootProject.ext.verName
     }
     compileOptions {
         sourceCompatibility 1.8
@@ -26,7 +26,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
-            if (isBuildModule.toBoolean()) {
+            if (rootProject.ext.isBuildModule.toBoolean()) {
                 //独立运行
                 manifest.srcFile 'src/main/alone/AndroidManifest.xml'
             } else {

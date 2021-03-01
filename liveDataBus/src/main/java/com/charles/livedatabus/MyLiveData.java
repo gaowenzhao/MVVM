@@ -1,5 +1,6 @@
 package com.charles.livedatabus;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import androidx.annotation.NonNull;

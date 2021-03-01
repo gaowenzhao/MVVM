@@ -17,7 +17,5 @@ class MainActivity : BaseSimpleActivity<MainActivityBinding>() {
     }
 
     override fun initData() {
-        var char =  "test".lastChar()
-        Toast.makeText(this,"新的测试包下发", Toast.LENGTH_SHORT).show()
     }
 }
